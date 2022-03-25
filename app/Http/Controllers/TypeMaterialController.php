@@ -13,19 +13,11 @@ class TypeMaterialController extends Controller
     */
    public function index()
    {
-       $blogs = Blog::all(['id','titulo','contenido']);
-       return response()->json($blogs);
+       $type_material = type_material::all(['name']);
+       return response()->json($type_material);
    }
 
-   /**
-    * Show the form for creating a new resource.
-    *
-    * @return \Illuminate\Http\Response
-    */
-   public function create()
-   {
-       //
-   }
+   
 
    /**
     * Store a newly created resource in storage.
@@ -35,58 +27,55 @@ class TypeMaterialController extends Controller
     */
    public function store(Request $request)
    {
-       $blog = Blog::create($request->post());
+       $type_material = type_material::create($request->post());
        return response()->json([           
-           'blog'=>$blog
+           'type_material'=>$type_material
        ]);
    }
 
    /**
     * Display the specified resource.
     *
-    * @param  \App\Models\Blog  $blog
+    * @param  \App\Models\type_material  $type_material
     * @return \Illuminate\Http\Response
     */
-   public function show(Blog $blog)
+   public function show(type_material $type_material)
    {
-       return response()->json($blog);
+       return response()->json($type_material);
    }
 
    /**
     * Show the form for editing the specified resource.
     *
-    * @param  \App\Models\Blog  $blog
+    * @param  \App\Models\type_material  $type_material
     * @return \Illuminate\Http\Response
     */
-   public function edit(Blog $blog)
-   {
-       //
-   }
+  
 
    /**
     * Update the specified resource in storage.
     *
     * @param  \Illuminate\Http\Request  $request
-    * @param  \App\Models\Blog  $blog
+    * @param  \App\Models\type_material  $type_material
     * @return \Illuminate\Http\Response
     */
-   public function update(Request $request, Blog $blog)
+   public function update(Request $request, type_material $type_material)
    {
-       $blog->fill($request->post())->save();
+       $type_material->fill($request->post())->save();
        return response()->json([            
-           'blog'=>$blog
+           'type_material'=>$type_material
        ]);
    }
 
    /**
     * Remove the specified resource from storage.
     *
-    * @param  \App\Models\Blog  $blog
+    * @param  \App\Models\type_material  $type_material
     * @return \Illuminate\Http\Response
     */
-   public function destroy(Blog $blog)
+   public function destroy(type_material $type_material)
    {
-       $blog->delete();
+       $type_material->delete();
        return response()->json([
            'mensaje'=>'¡Registro eliminado correctamente!'
        ]);

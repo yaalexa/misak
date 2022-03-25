@@ -2097,6 +2097,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -2219,6 +2222,19 @@ var CrearA = function CrearA() {
 
 var EditarA = function EditarA() {
   return __webpack_require__.e(/*! import() */ "resources_js_components_author_Editar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/author/Editar.vue */ "./resources/js/components/author/Editar.vue"));
+}; // componentes para author
+
+
+var Mostrartype_material = function Mostrartype_material() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_type_material_Mostrar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/type_material/Mostrar.vue */ "./resources/js/components/type_material/Mostrar.vue"));
+};
+
+var Creartype_material = function Creartype_material() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_type_material_Crear_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/type_material/Crear.vue */ "./resources/js/components/type_material/Crear.vue"));
+};
+
+var Editartype_material = function Editartype_material() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_type_material_Editar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/type_material/Editar.vue */ "./resources/js/components/type_material/Editar.vue"));
 };
 
 var routes = [{
@@ -2250,6 +2266,19 @@ var routes = [{
   name: 'editarAuthor',
   path: '/editar/:id',
   component: EditarA
+}, //rutas de los componentes de tipo de material
+{
+  name: 'mostrartype_material',
+  path: '/author',
+  component: Mostrartype_material
+}, {
+  name: 'creartype_material',
+  path: '/crear',
+  component: Creartype_material
+}, {
+  name: 'editartype_material',
+  path: '/editar/:id',
+  component: Editartype_material
 }, // formulario contacto
 {
   name: 'contacto',
@@ -19840,6 +19869,25 @@ var render = function() {
                         staticClass: "nav-link",
                         attrs: {
                           "exact-active-class": "active",
+                          to: "/type_material"
+                        }
+                      },
+                      [_vm._v("Tipo de material")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: {
+                          "exact-active-class": "active",
                           to: "/contacto"
                         }
                       },
@@ -19873,7 +19921,10 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "nav-link",
-                        attrs: { "exact-active-class": "active", to: "/tipom" }
+                        attrs: {
+                          "exact-active-class": "active",
+                          to: "/type_material"
+                        }
                       },
                       [_vm._v("Tipo de material")]
                     )
@@ -35417,7 +35468,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.3","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_Home_vue":1,"resources_js_components_Contacto_vue":1,"resources_js_components_blog_Mostrar_vue":1,"resources_js_components_blog_Crear_vue":1,"resources_js_components_blog_Editar_vue":1,"resources_js_components_author_Mostrar_vue":1,"resources_js_components_author_Crear_vue":1,"resources_js_components_author_Editar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_Home_vue":1,"resources_js_components_Contacto_vue":1,"resources_js_components_blog_Mostrar_vue":1,"resources_js_components_blog_Crear_vue":1,"resources_js_components_blog_Editar_vue":1,"resources_js_components_author_Mostrar_vue":1,"resources_js_components_author_Crear_vue":1,"resources_js_components_author_Editar_vue":1,"resources_js_components_type_material_Mostrar_vue":1,"resources_js_components_type_material_Crear_vue":1,"resources_js_components_type_material_Editar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

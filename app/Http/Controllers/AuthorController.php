@@ -90,7 +90,7 @@ class AuthorController extends Controller
      * @param  \App\Models\author  $author
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Author $id)
     {
         //api
         // $author = author::findOrFail($request->id);
@@ -101,10 +101,15 @@ class AuthorController extends Controller
         // return $author;
 
         //web
-        $datosAuthor = request()->except(['_token','_method']);
+       /* $datosAuthor = request()->except(['_token','_method']);
         author::where('id','=',$id)->update($datosAuthor);
         $author=author::findOrFail($id);
-        return view('edit.edit_author', compact('author'));
+        return view('edit.edit_author', compact('author'));*/
+        
+        $id->fill($request->post())->save();
+        return response()->json([            
+            'author'=>$id
+        ]);
     }
 
     /**

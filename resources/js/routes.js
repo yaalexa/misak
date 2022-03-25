@@ -9,6 +9,12 @@ const Editar = () => import('./components/blog/Editar.vue')
 const MostrarA = () => import('./components/author/Mostrar.vue')
 const CrearA = () => import('./components/author/Crear.vue')
 const EditarA = () => import('./components/author/Editar.vue')
+
+// componentes para author
+const Mostrartype_material = () => import('./components/type_material/Mostrar.vue')
+const Creartype_material = () => import('./components/type_material/Crear.vue')
+const Editartype_material= () => import('./components/type_material/Editar.vue')
+
 export const routes = [
     {
         name: 'home',
@@ -46,7 +52,22 @@ export const routes = [
         path: '/editar/:id',
         component: EditarA
     },
-
+//rutas de los componentes de tipo de material
+{
+    name: 'mostrartype_material',
+    path: '/author',
+    component: Mostrartype_material
+},
+{
+    name: 'creartype_material',
+    path: '/crear',
+    component: Creartype_material
+},
+{
+    name: 'editartype_material',
+    path: '/editar/:id',
+    component: Editartype_material
+},
     // formulario contacto
      {
         name: 'contacto',
