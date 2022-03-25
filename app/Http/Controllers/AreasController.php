@@ -7,79 +7,67 @@ use Illuminate\Http\Request;
 
 class AreasController extends Controller
 {
-    /**
+    
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        
+        $Areas = Areas::all(['id','name']);
+        return response()->json($Areas);
+        
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        $Areas = Areas::create($request->post());
+        return response()->json([           
+            'Areas'=>$Areas
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\areas  $areas
-     * @return \Illuminate\Http\Response
-     */
-    public function show(areas $areas)
+    public function show(Areas $Areas)
     {
-        //
+        return response()->json($Areas);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\areas  $areas
+     * @param  \App\Models\author  $author
      * @return \Illuminate\Http\Response
      */
-    public function edit(areas $areas)
+    public function edit( $id)
     {
-        //
+        $Areas=Areas::findOrFail($id);
+        return view('edit.edit_areas', compact('areas'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\areas  $areas
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, areas $areas)
+    
+    public function update(Request $request, Areas $id)
     {
-        //
+       
+        
+        $id->fill($request->post())->save();
+        return response()->json([            
+            'Areas'=>$id
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\areas  $areas
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(areas $areas)
+    public function destroy(Request $request, $id)
     {
-        //
+        
+        Areas::destroy($id);
+        return redirect('areas');
+
     }
 }

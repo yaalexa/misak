@@ -9,11 +9,11 @@ const Editar = () => import('./components/blog/Editar.vue')
 const MostrarA = () => import('./components/author/Mostrar.vue')
 const CrearA = () => import('./components/author/Crear.vue')
 const EditarA = () => import('./components/author/Editar.vue')
+// componentes para areas
+const MostrarAreas = () => import('./components/areas/Mostrar.vue')
+const CrearAreas= () => import('./components/areas/Crear.vue')
+const EditarAreas= () => import('./components/areas/Editar.vue')
 
-// componentes para author
-const MostrarTypematerial = () => import('./components/typematerial/Mostrar.vue')
-const CrearTypematerial = () => import('./components/typematerial/Crear.vue')
-const EditarTypematerial= () => import('./components/typematerial/Editar.vue')
 
 export const routes = [
     {
@@ -52,22 +52,24 @@ export const routes = [
         path: '/editar/:id',
         component: EditarA
     },
-//rutas de los componentes de tipo de material
+    //rutas de los componentes de tipo de areas
 {
-    name: 'mostrarTypematerial',
-    path: '/',
-    component: MostrarTypematerial
+    name: 'mostrarAreas',
+    path: '/areas',
+    component: MostrarAreas
 },
 {
-    name: 'crearTypematerial',
+    name: 'crearAreas',
     path: '/crear',
-    component: CrearTypematerial
+    component: CrearAreas
 },
 {
-    name: 'editarTypematerial',
+    name: 'editarAreas',
     path: '/editar/:id',
-    component: EditarTypematerial
+    component: EditarAreas
 },
+    
+
     // formulario contacto
      {
         name: 'contacto',

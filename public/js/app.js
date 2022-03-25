@@ -2220,19 +2220,19 @@ var CrearA = function CrearA() {
 
 var EditarA = function EditarA() {
   return __webpack_require__.e(/*! import() */ "resources_js_components_author_Editar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/author/Editar.vue */ "./resources/js/components/author/Editar.vue"));
-}; // componentes para author
+}; // componentes para areas
 
 
-var MostrarTypematerial = function MostrarTypematerial() {
-  return Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './components/typematerial/Mostrar.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; });
+var MostrarAreas = function MostrarAreas() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_areas_Mostrar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/areas/Mostrar.vue */ "./resources/js/components/areas/Mostrar.vue"));
 };
 
-var CrearTypematerial = function CrearTypematerial() {
-  return Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './components/typematerial/Crear.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; });
+var CrearAreas = function CrearAreas() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_areas_Crear_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/areas/Crear.vue */ "./resources/js/components/areas/Crear.vue"));
 };
 
-var EditarTypematerial = function EditarTypematerial() {
-  return Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './components/typematerial/Editar.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; });
+var EditarAreas = function EditarAreas() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_areas_Editar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/areas/Editar.vue */ "./resources/js/components/areas/Editar.vue"));
 };
 
 var routes = [{
@@ -2264,19 +2264,19 @@ var routes = [{
   name: 'editarAuthor',
   path: '/editar/:id',
   component: EditarA
-}, //rutas de los componentes de tipo de material
+}, //rutas de los componentes de tipo de areas
 {
-  name: 'mostrarTypematerial',
-  path: '/',
-  component: MostrarTypematerial
+  name: 'mostrarAreas',
+  path: '/areas',
+  component: MostrarAreas
 }, {
-  name: 'crearTypematerial',
+  name: 'crearAreas',
   path: '/crear',
-  component: CrearTypematerial
+  component: CrearAreas
 }, {
-  name: 'editarTypematerial',
+  name: 'editarAreas',
   path: '/editar/:id',
-  component: EditarTypematerial
+  component: EditarAreas
 }, // formulario contacto
 {
   name: 'contacto',
@@ -35447,7 +35447,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.3","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_Home_vue":1,"resources_js_components_Contacto_vue":1,"resources_js_components_blog_Mostrar_vue":1,"resources_js_components_blog_Crear_vue":1,"resources_js_components_blog_Editar_vue":1,"resources_js_components_author_Mostrar_vue":1,"resources_js_components_author_Crear_vue":1,"resources_js_components_author_Editar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_Home_vue":1,"resources_js_components_Contacto_vue":1,"resources_js_components_blog_Mostrar_vue":1,"resources_js_components_blog_Crear_vue":1,"resources_js_components_blog_Editar_vue":1,"resources_js_components_author_Mostrar_vue":1,"resources_js_components_author_Crear_vue":1,"resources_js_components_author_Editar_vue":1,"resources_js_components_areas_Mostrar_vue":1,"resources_js_components_areas_Crear_vue":1,"resources_js_components_areas_Editar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
