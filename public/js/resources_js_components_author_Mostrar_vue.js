@@ -72,17 +72,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "blogs",
+  name: "author",
   data: function data() {
     return {
-      blogs: []
+      author: []
     };
   },
   mounted: function mounted() {
-    this.mostrarBlogs();
+    this.mostrarAuthor();
   },
   methods: {
-    mostrarBlogs: function mostrarBlogs() {
+    mostrarAuthor: function mostrarAuthor() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -91,11 +91,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.axios.get('/api/blog').then(function (response) {
-                  _this.blogs = response.data;
+                return _this.axios.get('/api/author').then(function (response) {
+                  _this.author = response.data;
                 })["catch"](function (error) {
                   console.log(error);
-                  _this.blogs = [];
+                  _this.author = [];
                 });
 
               case 2:
@@ -106,12 +106,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    borrarBlog: function borrarBlog(id) {
+    borrarAuthor: function borrarAuthor(id) {
       var _this2 = this;
 
       if (confirm("¿Confirma eliminar el registro?")) {
-        this.axios["delete"]("/api/blog/".concat(id)).then(function (response) {
-          _this2.mostrarBlogs();
+        this.axios["delete"]("/api/author/".concat(id)).then(function (response) {
+          _this2.mostrarAuthor();
         })["catch"](function (error) {
           console.log(error);
         });

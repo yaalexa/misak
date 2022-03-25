@@ -19,8 +19,10 @@ class AuthorController extends Controller
         // return $author;
 
         //web
-        $author['author']=author::paginate(20);
-        return view('show_data.data_author',$author);
+        $author = Author::all(['id','name','address']);
+        return response()->json($author);
+        /*$author['author']=author::paginate(20);
+        return view('show_data.data_author',$author);*/
     }
 
     /**

@@ -13,7 +13,7 @@
                         <router-link exact-active-class="active" to="/blogs" class="nav-link">Categoria</router-link>
                     </li>   
                      <li class="nav-item">
-                        <router-link exact-active-class="active" to="/author" class="nav-link active" aria-current="page">Autores</router-link>
+                        <router-link exact-active-class="active" to="/author" class="nav-link" aria-current="page">Autores</router-link>
                     </li>
                      <li class="nav-item">
                         <router-link exact-active-class="active" to="/contacto" class="nav-link">Perfil</router-link>
