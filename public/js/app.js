@@ -2099,6 +2099,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -19884,6 +19885,25 @@ var render = function() {
                         staticClass: "nav-link",
                         attrs: {
                           "exact-active-class": "active",
+                          to: "/editorial"
+                        }
+                      },
+                      [_vm._v("Editorial")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: {
+                          "exact-active-class": "active",
                           to: "/typematerial"
                         }
                       },
@@ -19926,25 +19946,6 @@ var render = function() {
                         }
                       },
                       [_vm._v("Descargas")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
-                        attrs: {
-                          "exact-active-class": "active",
-                          to: "/editorial"
-                        }
-                      },
-                      [_vm._v("Editorial")]
                     )
                   ],
                   1

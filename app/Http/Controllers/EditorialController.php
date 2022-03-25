@@ -14,7 +14,8 @@ class EditorialController extends Controller
      */
     public function index()
     {
-        //
+        $editorial = Editorial::all(['id','name']);
+        return response()->json($editorial);
     }
 
     /**
@@ -35,7 +36,10 @@ class EditorialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $editorial = Editorial::create($request->post());
+        return response()->json([           
+            'editorial'=>$editorial
+        ]);
     }
 
     /**
@@ -46,7 +50,7 @@ class EditorialController extends Controller
      */
     public function show(editorial $editorial)
     {
-        //
+        return response()->json($editorial);
     }
 
     /**
@@ -69,7 +73,10 @@ class EditorialController extends Controller
      */
     public function update(Request $request, editorial $editorial)
     {
-        //
+        $editorial->fill($request->post())->save();
+        return response()->json([            
+            'editorial'=>$editorial
+        ]);
     }
 
     /**
@@ -80,6 +87,9 @@ class EditorialController extends Controller
      */
     public function destroy(editorial $editorial)
     {
-        //
+        $editorial->delete();
+        return response()->json([
+            'mensaje'=>'¡Registro eliminado correctamente!'
+        ]);
     }
 }
