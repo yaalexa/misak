@@ -16,7 +16,25 @@
                     </li>   
                      <li class="nav-item">
                         <router-link exact-active-class="active" to="/contacto" class="nav-link">Perfil</router-link>
-                    </li>            
+                    </li>   
+                     <li class="nav-item">
+                        <router-link exact-active-class="active" to="/autores" class="nav-link active" aria-current="page">Autores</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link exact-active-class="active" to="/areas" class="nav-link">Areas</router-link>
+                    </li>   
+                     <li class="nav-item">
+                        <router-link exact-active-class="active" to="/tipom" class="nav-link">Tipo de material</router-link>
+                    </li>   
+                     <li class="nav-item">
+                        <router-link exact-active-class="active" to="/descargas" class="nav-link">Descargas</router-link>
+                    </li>          
+                     <li class="nav-item">
+                        <router-link exact-active-class="active" to="/editorial" class="nav-link">Editorial</router-link>
+                    </li> 
+                     <li class="nav-item">
+                        <router-link exact-active-class="active" to="/niveledu" class="nav-link">Nivel Educativo</router-link>
+                    </li>          
                 </ul>
                 
                 </div>
