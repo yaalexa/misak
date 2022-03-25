@@ -14,7 +14,8 @@ class EducationalLevelController extends Controller
      */
     public function index()
     {
-        //
+        $educational_level = educational_level::all(['id','name']);
+        return response()->json($educational_level);
     }
 
     /**
@@ -35,7 +36,10 @@ class EducationalLevelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $educational_level = educational_level::create($request->post());
+        return response()->json([           
+            'educational_level'=>$educational_level
+        ]);
     }
 
     /**
@@ -46,7 +50,7 @@ class EducationalLevelController extends Controller
      */
     public function show(educational_level $educational_level)
     {
-        //
+        return response()->json($educational_level);
     }
 
     /**
@@ -69,7 +73,10 @@ class EducationalLevelController extends Controller
      */
     public function update(Request $request, educational_level $educational_level)
     {
-        //
+        $educational_level->fill($request->post())->save();
+        return response()->json([            
+            'educational_level'=>$educational_level
+        ]);
     }
 
     /**
@@ -80,6 +87,9 @@ class EducationalLevelController extends Controller
      */
     public function destroy(educational_level $educational_level)
     {
-        //
+        $educational_level->delete();
+        return response()->json([
+            'mensaje'=>'¡Registro eliminado correctamente!'
+        ]);
     }
 }

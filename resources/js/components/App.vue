@@ -22,7 +22,9 @@
                       <li class="nav-item">
                         <router-link exact-active-class="active" to="/editorial" class="nav-link">Editorial</router-link>
                     </li>
-
+                    <li class="nav-item">
+                        <router-link exact-active-class="active" to="/educational_level" class="nav-link">Nivel Educativo</router-link>
+                    </li>   
                      <li class="nav-item">
                         <router-link exact-active-class="active" to="/typematerial" class="nav-link">Tipo de material</router-link>
                     </li>   
@@ -34,9 +36,7 @@
                         <router-link exact-active-class="active" to="/descargas" class="nav-link">Descargas</router-link>
                     </li>          
                      
-                     <li class="nav-item">
-                        <router-link exact-active-class="active" to="/niveledu" class="nav-link">Nivel Educativo</router-link>
-                    </li>          
+                            
                 </ul>
                 
                 </div>

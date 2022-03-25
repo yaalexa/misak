@@ -2248,6 +2248,19 @@ var CrearEditorial = function CrearEditorial() {
 
 var EditarEditorial = function EditarEditorial() {
   return __webpack_require__.e(/*! import() */ "resources_js_components_editorial_Editar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/editorial/Editar.vue */ "./resources/js/components/editorial/Editar.vue"));
+}; // componentes para editorial
+
+
+var MostrarEducational_level = function MostrarEducational_level() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_educational_level_Mostrar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/educational_level/Mostrar.vue */ "./resources/js/components/educational_level/Mostrar.vue"));
+};
+
+var CrearEducational_level = function CrearEducational_level() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_educational_level_Crear_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/educational_level/Crear.vue */ "./resources/js/components/educational_level/Crear.vue"));
+};
+
+var EditarEducational_level = function EditarEducational_level() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_educational_level_Editar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/educational_level/Editar.vue */ "./resources/js/components/educational_level/Editar.vue"));
 };
 
 var routes = [{
@@ -2305,6 +2318,19 @@ var routes = [{
   name: 'editarEditorial',
   path: '/editar/:id',
   component: EditarEditorial
+}, //rutas de los componentes nivel educativo
+{
+  name: 'mostrarEducational_level',
+  path: '/educational_level',
+  component: MostrarEducational_level
+}, {
+  name: 'crearEducational_level',
+  path: '/crear',
+  component: CrearEducational_level
+}, {
+  name: 'editarEducational_level',
+  path: '/editar/:id',
+  component: EditarEducational_level
 }, // formulario contacto
 {
   name: 'contacto',
@@ -19930,6 +19956,25 @@ var render = function() {
                         staticClass: "nav-link",
                         attrs: {
                           "exact-active-class": "active",
+                          to: "/educational_level"
+                        }
+                      },
+                      [_vm._v("Nivel Educativo")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: {
+                          "exact-active-class": "active",
                           to: "/typematerial"
                         }
                       },
@@ -19972,25 +20017,6 @@ var render = function() {
                         }
                       },
                       [_vm._v("Descargas")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
-                        attrs: {
-                          "exact-active-class": "active",
-                          to: "/niveledu"
-                        }
-                      },
-                      [_vm._v("Nivel Educativo")]
                     )
                   ],
                   1
@@ -35475,7 +35501,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.3","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_Home_vue":1,"resources_js_components_Contacto_vue":1,"resources_js_components_blog_Mostrar_vue":1,"resources_js_components_blog_Crear_vue":1,"resources_js_components_blog_Editar_vue":1,"resources_js_components_author_Mostrar_vue":1,"resources_js_components_author_Crear_vue":1,"resources_js_components_author_Editar_vue":1,"resources_js_components_areas_Mostrar_vue":1,"resources_js_components_areas_Crear_vue":1,"resources_js_components_areas_Editar_vue":1,"resources_js_components_editorial_Mostrar_vue":1,"resources_js_components_editorial_Crear_vue":1,"resources_js_components_editorial_Editar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_Home_vue":1,"resources_js_components_Contacto_vue":1,"resources_js_components_blog_Mostrar_vue":1,"resources_js_components_blog_Crear_vue":1,"resources_js_components_blog_Editar_vue":1,"resources_js_components_author_Mostrar_vue":1,"resources_js_components_author_Crear_vue":1,"resources_js_components_author_Editar_vue":1,"resources_js_components_areas_Mostrar_vue":1,"resources_js_components_areas_Crear_vue":1,"resources_js_components_areas_Editar_vue":1,"resources_js_components_editorial_Mostrar_vue":1,"resources_js_components_editorial_Crear_vue":1,"resources_js_components_editorial_Editar_vue":1,"resources_js_components_educational_level_Mostrar_vue":1,"resources_js_components_educational_level_Crear_vue":1,"resources_js_components_educational_level_Editar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

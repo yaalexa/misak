@@ -17,7 +17,10 @@ const EditarAreas= () => import('./components/areas/Editar.vue')
 const MostrarEditorial = () => import('./components/editorial/Mostrar.vue')
 const CrearEditorial= () => import('./components/editorial/Crear.vue')
 const EditarEditorial= () => import('./components/editorial/Editar.vue')
-
+// componentes para editorial
+const MostrarEducational_level = () => import('./components/educational_level/Mostrar.vue')
+const CrearEducational_level= () => import('./components/educational_level/Crear.vue')
+const EditarEducational_level= () => import('./components/educational_level/Editar.vue')
 export const routes = [
     {
         name: 'home',
@@ -87,7 +90,22 @@ export const routes = [
     path: '/editar/:id',
     component: EditarEditorial
 },
-
+ //rutas de los componentes nivel educativo
+ {
+    name: 'mostrarEducational_level',
+    path: '/educational_level',
+    component: MostrarEducational_level
+},
+{
+    name: 'crearEducational_level',
+    path: '/crear',
+    component: CrearEducational_level
+},
+{
+    name: 'editarEducational_level',
+    path: '/editar/:id',
+    component: EditarEducational_level
+},
     // formulario contacto
      {
         name: 'contacto',
