@@ -2,8 +2,11 @@
     <div class="row">
         <div class="col-12 mb-2">
             <!-- llamamos al componente para Crear   -->
-            <router-link :to='{name:"crearBlog"}' class="btn btn-success"><i class="fas fa-plus-circle"></i></router-link>
+            <router-link :to='{name:"crearAuthor"}' class="btn btn-success"><i class="fas fa-plus-circle"></i></router-link>
         </div>
+        <div class="col text-center">
+               <h1> AUTORES </h1>
+            </div>
         <div class="col-12">             
                     <div class="table-responsive">
                         <table class="table table-bordered">
@@ -11,19 +14,21 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nombre</th>
-                                    <th>Descripcion</th>
+                                    <th>Direccion</th>
+                                    <th>Telefono</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="blog in blogs" :key="blog.id">
-                                    <td>{{ blog.id }}</td>
-                                    <td>{{ blog.titulo }}</td>
-                                    <td>{{ blog.contenido }}</td>
+                                <tr v-for="author in author" :key="author.id">
+                                    <td>{{ author.id }}</td>
+                                    <td>{{ author.name }}</td>
+                                    <td>{{ author.address }}</td>
+                                    <td>{{ author.phone }}</td>
                                     <td>
                                         <!-- llamamos al componente para Editar     -->
-                                        <router-link :to='{name:"editarBlog",params:{id:blog.id}}' class="btn btn-info"><i class="fas fa-edit"></i></router-link>
-                                        <a type="button" @click="borrarBlog(blog.id)" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                        <router-link :to='{name:"editarAuthor",params:{id:author.id}}' class="btn btn-info"><i class="fas fa-edit"></i></router-link>
+                                        <a type="button" @click="borrarAuthor(author.id)" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>
                             </tbody>

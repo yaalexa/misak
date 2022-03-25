@@ -8,18 +8,17 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <router-link exact-active-class="active" to="/" class="nav-link active" aria-current="page">Material</router-link>
-                    </li>
+                    
                     <li class="nav-item">
                         <router-link exact-active-class="active" to="/blogs" class="nav-link">Categoria</router-link>
                     </li>   
                      <li class="nav-item">
+                        <router-link exact-active-class="active" to="/author" class="nav-link active" aria-current="page">Autores</router-link>
+                    </li>
+                     <li class="nav-item">
                         <router-link exact-active-class="active" to="/contacto" class="nav-link">Perfil</router-link>
                     </li>   
-                     <li class="nav-item">
-                        <router-link exact-active-class="active" to="/autores" class="nav-link active" aria-current="page">Autores</router-link>
-                    </li>
+                    
                     <li class="nav-item">
                         <router-link exact-active-class="active" to="/areas" class="nav-link">Areas</router-link>
                     </li>   

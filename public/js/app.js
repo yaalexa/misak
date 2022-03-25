@@ -2097,7 +2097,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -2207,6 +2206,19 @@ var Crear = function Crear() {
 
 var Editar = function Editar() {
   return __webpack_require__.e(/*! import() */ "resources_js_components_blog_Editar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/blog/Editar.vue */ "./resources/js/components/blog/Editar.vue"));
+}; // componentes para author
+
+
+var MostrarA = function MostrarA() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_author_Mostrar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/author/Mostrar.vue */ "./resources/js/components/author/Mostrar.vue"));
+};
+
+var CrearA = function CrearA() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_author_Crear_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/author/Crear.vue */ "./resources/js/components/author/Crear.vue"));
+};
+
+var EditarA = function EditarA() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_author_Editar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/author/Editar.vue */ "./resources/js/components/author/Editar.vue"));
 };
 
 var routes = [{
@@ -2225,7 +2237,21 @@ var routes = [{
   name: 'editarBlog',
   path: '/editar/:id',
   component: Editar
+}, //rutas de los componentes de author
+{
+  name: 'mostrarAuthor',
+  path: '/author',
+  component: MostrarA
 }, {
+  name: 'crearAuthor',
+  path: '/crear',
+  component: CrearA
+}, {
+  name: 'editarAuthor',
+  path: '/editar/:id',
+  component: EditarA
+}, // formulario contacto
+{
   name: 'contacto',
   path: '/contacto',
   component: Contacto
@@ -19775,14 +19801,10 @@ var render = function() {
                     _c(
                       "router-link",
                       {
-                        staticClass: "nav-link active",
-                        attrs: {
-                          "exact-active-class": "active",
-                          to: "/",
-                          "aria-current": "page"
-                        }
+                        staticClass: "nav-link",
+                        attrs: { "exact-active-class": "active", to: "/blogs" }
                       },
-                      [_vm._v("Material")]
+                      [_vm._v("Categoria")]
                     )
                   ],
                   1
@@ -19795,10 +19817,14 @@ var render = function() {
                     _c(
                       "router-link",
                       {
-                        staticClass: "nav-link",
-                        attrs: { "exact-active-class": "active", to: "/blogs" }
+                        staticClass: "nav-link active",
+                        attrs: {
+                          "exact-active-class": "active",
+                          to: "/author",
+                          "aria-current": "page"
+                        }
                       },
-                      [_vm._v("Categoria")]
+                      [_vm._v("Autores")]
                     )
                   ],
                   1
@@ -19818,26 +19844,6 @@ var render = function() {
                         }
                       },
                       [_vm._v("Perfil")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link active",
-                        attrs: {
-                          "exact-active-class": "active",
-                          to: "/autores",
-                          "aria-current": "page"
-                        }
-                      },
-                      [_vm._v("Autores")]
                     )
                   ],
                   1
@@ -35411,7 +35417,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.3","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_Home_vue":1,"resources_js_components_Contacto_vue":1,"resources_js_components_blog_Mostrar_vue":1,"resources_js_components_blog_Crear_vue":1,"resources_js_components_blog_Editar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_Home_vue":1,"resources_js_components_Contacto_vue":1,"resources_js_components_blog_Mostrar_vue":1,"resources_js_components_blog_Crear_vue":1,"resources_js_components_blog_Editar_vue":1,"resources_js_components_author_Mostrar_vue":1,"resources_js_components_author_Crear_vue":1,"resources_js_components_author_Editar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
