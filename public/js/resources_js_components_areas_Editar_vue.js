@@ -56,33 +56,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "editar-author",
+  name: "editar-areas",
   data: function data() {
     return {
-      author: {
-        name: "",
-        address: "",
-        phone: ""
+      areas: {
+        name: ""
       }
     };
   },
   mounted: function mounted() {
-    this.mostrarAuthor();
+    this.mostrarAreas();
   },
   methods: {
-    mostrarAuthor: function mostrarAuthor() {
+    mostrarAreas: function mostrarAreas() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -91,14 +78,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.axios.get("/api/author/".concat(_this.$route.params.id)).then(function (response) {
-                  var _response$data = response.data,
-                      name = _response$data.name,
-                      address = _response$data.address,
-                      phone = _response$data.phone;
-                  _this.author.name = name;
-                  _this.author.address = address;
-                  _this.author.phone = phone;
+                return _this.axios.get("/api/areas/".concat(_this.$route.params.id)).then(function (response) {
+                  var name = response.data.name;
+                  _this.areas.name = name;
                 })["catch"](function (error) {
                   console.log(error);
                 });
@@ -120,9 +102,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _this2.axios.put("/api/author/".concat(_this2.$route.params.id), _this2.author).then(function (response) {
+                return _this2.axios.put("/api/areas/".concat(_this2.$route.params.id), _this2.areas).then(function (response) {
                   _this2.$router.push({
-                    name: "mostrarAuthor"
+                    name: "mostrarAreas"
                   });
                 })["catch"](function (error) {
                   console.log(error);
@@ -1020,75 +1002,19 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.author.name,
-                          expression: "author.name"
+                          value: _vm.areas.name,
+                          expression: "areas.name"
                         }
                       ],
                       staticClass: "form-control",
                       attrs: { type: "text" },
-                      domProps: { value: _vm.author.name },
+                      domProps: { value: _vm.areas.name },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.$set(_vm.author, "name", $event.target.value)
-                        }
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 mb-2" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("DIRECCION")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.author.address,
-                          expression: "author.address"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.author.address },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.author, "address", $event.target.value)
-                        }
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 mb-2" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("TELEFONO")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.author.phone,
-                          expression: "author.phone"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.author.phone },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.author, "phone", $event.target.value)
+                          _vm.$set(_vm.areas, "name", $event.target.value)
                         }
                       }
                     })
@@ -1110,7 +1036,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Editar Autor")])
+      _c("h4", [_vm._v("Editar Areas")])
     ])
   },
   function() {
