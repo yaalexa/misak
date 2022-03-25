@@ -42,14 +42,14 @@ export default {
         async mostrarEditorial(){
             await this.axios.get(`/api/editorial/${this.$route.params.id}`).then(response=>{
                 const { name} = response.data
-                this.areas.name = name
+                this.editorial.name = name
               
             }).catch(error=>{
                 console.log(error)
             })
         },
         async actualizar(){
-            await this.axios.put(`/api/ediorial/${this.$route.params.id}`,this.areas).then(response=>{
+            await this.axios.put(`/api/editorial/${this.$route.params.id}`,this.editorial).then(response=>{
                 this.$router.push({name:"mostrarEditorial"})
             }).catch(error=>{
                 console.log(error)

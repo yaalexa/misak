@@ -80,7 +80,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.next = 2;
                 return _this.axios.get("/api/editorial/".concat(_this.$route.params.id)).then(function (response) {
                   var name = response.data.name;
-                  _this.areas.name = name;
+                  _this.editorial.name = name;
                 })["catch"](function (error) {
                   console.log(error);
                 });
@@ -102,7 +102,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _this2.axios.put("/api/ediorial/".concat(_this2.$route.params.id), _this2.areas).then(function (response) {
+                return _this2.axios.put("/api/editorial/".concat(_this2.$route.params.id), _this2.editorial).then(function (response) {
                   _this2.$router.push({
                     name: "mostrarEditorial"
                   });
