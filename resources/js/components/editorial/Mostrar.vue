@@ -2,10 +2,10 @@
     <div class="row">
         <div class="col-12 mb-2">
             <!-- llamamos al componente para Crear   -->
-            <router-link :to='{name:"crearAreas"}' class="btn btn-success"><i class="fas fa-plus-circle"></i></router-link>
+            <router-link :to='{name:"crearEditorial"}' class="btn btn-success"><i class="fas fa-plus-circle"></i></router-link>
         </div>
         <div class="col text-center">
-               <h1> AREAS </h1>
+               <h1> EDITORIALES </h1>
             </div>
         <div class="col-12">             
                     <div class="table-responsive">
@@ -18,14 +18,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="areas in areas" :key="areas.id">
-                                    <td>{{ areas.id }}</td>
-                                    <td>{{ areas.name }}</td>
+                                <tr v-for="editorial in editorial" :key="editorial.id">
+                                    <td>{{ editorial.id }}</td>
+                                    <td>{{ editorial.name }}</td>
                                     
                                     <td>
                                         <!-- llamamos al componente para Editar     -->
-                                        <router-link :to='{name:"editarAreas",params:{id:areas.id}}' class="btn btn-info"><i class="fas fa-edit"></i></router-link>
-                                        <a type="button" @click="borrarAreas(areas.id)" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                        <router-link :to='{name:"editarEditorial",params:{id:editorial.id}}' class="btn btn-info"><i class="fas fa-edit"></i></router-link>
+                                        <a type="button" @click="borrarEditorial(editorial.id)" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -38,28 +38,28 @@
 
 <script>
 export default {
-    name:"areas",
+    name:"editorial",
     data(){
         return {
-            areas:[]
+            editorial:[]
         }
     },
     mounted(){
-        this.mostrarAreas()
+        this.mostrarEditorial()
     },
     methods:{
-        async mostrarAreas(){
-            await this.axios.get('/api/areas').then(response=>{
-                this.areas = response.data
+        async mostrarEditorial(){
+            await this.axios.get('/api/editorial').then(response=>{
+                this.editorial = response.data
             }).catch(error=>{
                 console.log(error)
                 this.areas = []
             })
         },
-        borrarAuthor(id){
+        borrarEditorial(id){
             if(confirm("¿Confirma eliminar el registro?")){
-                this.axios.delete(`/api/areas/${id}`).then(response=>{
-                    this.mostrarAreas()
+                this.axios.delete(`/api/editorial/${id}`).then(response=>{
+                    this.mostrarEditorial()
                 }).catch(error=>{
                     console.log(error)
                 })

@@ -2235,6 +2235,19 @@ var CrearAreas = function CrearAreas() {
 
 var EditarAreas = function EditarAreas() {
   return __webpack_require__.e(/*! import() */ "resources_js_components_areas_Editar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/areas/Editar.vue */ "./resources/js/components/areas/Editar.vue"));
+}; // componentes para editorial
+
+
+var MostrarEditorial = function MostrarEditorial() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_editorial_Mostrar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/editorial/Mostrar.vue */ "./resources/js/components/editorial/Mostrar.vue"));
+};
+
+var CrearEditorial = function CrearEditorial() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_editorial_Crear_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/editorial/Crear.vue */ "./resources/js/components/editorial/Crear.vue"));
+};
+
+var EditarEditorial = function EditarEditorial() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_editorial_Editar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/editorial/Editar.vue */ "./resources/js/components/editorial/Editar.vue"));
 };
 
 var routes = [{
@@ -2279,6 +2292,19 @@ var routes = [{
   name: 'editarAreas',
   path: '/editar/:id',
   component: EditarAreas
+}, //rutas de los componentes de tipo de editorial
+{
+  name: 'mostrarEditorial',
+  path: '/editorial',
+  component: MostrarEditorial
+}, {
+  name: 'crearEditorial',
+  path: '/crear',
+  component: CrearEditorial
+}, {
+  name: 'editarEditorial',
+  path: '/editar/:id',
+  component: EditarEditorial
 }, // formulario contacto
 {
   name: 'contacto',
@@ -35449,7 +35475,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.3","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_Home_vue":1,"resources_js_components_Contacto_vue":1,"resources_js_components_blog_Mostrar_vue":1,"resources_js_components_blog_Crear_vue":1,"resources_js_components_blog_Editar_vue":1,"resources_js_components_author_Mostrar_vue":1,"resources_js_components_author_Crear_vue":1,"resources_js_components_author_Editar_vue":1,"resources_js_components_areas_Mostrar_vue":1,"resources_js_components_areas_Crear_vue":1,"resources_js_components_areas_Editar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_Home_vue":1,"resources_js_components_Contacto_vue":1,"resources_js_components_blog_Mostrar_vue":1,"resources_js_components_blog_Crear_vue":1,"resources_js_components_blog_Editar_vue":1,"resources_js_components_author_Mostrar_vue":1,"resources_js_components_author_Crear_vue":1,"resources_js_components_author_Editar_vue":1,"resources_js_components_areas_Mostrar_vue":1,"resources_js_components_areas_Crear_vue":1,"resources_js_components_areas_Editar_vue":1,"resources_js_components_editorial_Mostrar_vue":1,"resources_js_components_editorial_Crear_vue":1,"resources_js_components_editorial_Editar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

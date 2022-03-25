@@ -12,6 +12,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('blog',App\Http\Controllers\BlogController::class);
 Route::resource('author',App\Http\Controllers\AuthorController::class);
 Route::resource('areas',App\Http\Controllers\AreasController::class);
+Route::resource('editorial',App\Http\Controllers\EditorialController::class);
 //Route::resource('typematerial',App\Http\Controllers\TypeMaterialController::class);
 /*Route::get('/author',[AuthorController::class,'index']);// muestra todos los registros
 Route::post('/author',[AuthorController::class,'store']);//crea un registro

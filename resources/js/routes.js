@@ -13,7 +13,10 @@ const EditarA = () => import('./components/author/Editar.vue')
 const MostrarAreas = () => import('./components/areas/Mostrar.vue')
 const CrearAreas= () => import('./components/areas/Crear.vue')
 const EditarAreas= () => import('./components/areas/Editar.vue')
-
+// componentes para editorial
+const MostrarEditorial = () => import('./components/editorial/Mostrar.vue')
+const CrearEditorial= () => import('./components/editorial/Crear.vue')
+const EditarEditorial= () => import('./components/editorial/Editar.vue')
 
 export const routes = [
     {
@@ -68,7 +71,22 @@ export const routes = [
     path: '/editar/:id',
     component: EditarAreas
 },
-    
+     //rutas de los componentes de tipo de editorial
+{
+    name: 'mostrarEditorial',
+    path: '/editorial',
+    component: MostrarEditorial
+},
+{
+    name: 'crearEditorial',
+    path: '/crear',
+    component: CrearEditorial
+},
+{
+    name: 'editarEditorial',
+    path: '/editar/:id',
+    component: EditarEditorial
+},
 
     // formulario contacto
      {
