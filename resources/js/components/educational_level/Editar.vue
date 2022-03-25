@@ -2,28 +2,17 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header"><h4>Editar Autor</h4></div>
+                <div class="card-header"><h4>Editar NIVEL DE EDUCACION</h4></div>
                 <div class="card-body">
                     <form @submit.prevent="actualizar">
                          <div class="row">
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>NOMBRE</label>
-                                    <input type="text" class="form-control" v-model="author.name">
+                                    <input type="text" class="form-control" v-model="educational_level.name">
                                 </div>
                             </div>
-                            <div class="col-12 mb-2">
-                                <div class="form-group">
-                                    <label>DIRECCION</label>
-                                    <input type="text" class="form-control" v-model="author.address">
-                                </div>
-                            </div>
-                           <div class="col-12 mb-2">
-                                <div class="form-group">
-                                    <label>TELEFONO</label>
-                                    <input type="text" class="form-control" v-model="author.phone">
-                                </div>
-                            </div>
+                            
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>
@@ -37,33 +26,30 @@
 
 <script>
 export default {
-    name:"editar-author",
+    name:"editar-educational_level",
     data(){
         return {
-            author:{
+            educational_level:{
                 name:"",
-                address:"",
-                phone:"",
             }
         }
     },
     mounted(){
-        this.mostrarAuthor()
+        this.mostrarEducational_level()
     },
     methods:{
-        async mostrarAuthor(){
-            await this.axios.get(`/api/author/${this.$route.params.id}`).then(response=>{
-                const { name, address,phone } = response.data
-                this.author.name = name
-                this.author.address = address
-                this.author.phone = phone
+        async mostrarEducational_level(){
+            await this.axios.get(`/api/educational_level/${this.$route.params.id}`).then(response=>{
+                const { name} = response.data
+                this.educational_level.name = name
+               
             }).catch(error=>{
                 console.log(error)
             })
         },
         async actualizar(){
-            await this.axios.put(`/api/author/${this.$route.params.id}`,this.author).then(response=>{
-                this.$router.push({name:"mostrarAuthor"})
+            await this.axios.put(`/api/educational_level/${this.$route.params.id}`,this.educational_level).then(response=>{
+                this.$router.push({name:"mostrarEducational_level"})
             }).catch(error=>{
                 console.log(error)
             })

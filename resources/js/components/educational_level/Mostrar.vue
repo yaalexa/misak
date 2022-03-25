@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12 mb-2">
             <!-- llamamos al componente para Crear   -->
-            <router-link :to='{name:"crearAuthor"}' class="btn btn-success"><i class="fas fa-plus-circle"></i></router-link>
+            <router-link :to='{name:"crearEducational_level"}' class="btn btn-success"><i class="fas fa-plus-circle"></i></router-link>
         </div>
         <div class="col text-center">
                <h1> NIVEL DE EDUCACION </h1>

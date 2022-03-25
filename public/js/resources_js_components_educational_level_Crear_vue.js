@@ -56,25 +56,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "crear-author",
+  name: "crear-educational_level",
   data: function data() {
     return {
-      author: {
-        name: "",
-        address: "",
-        phone: ""
+      educational_level: {
+        name: ""
       }
     };
   },
@@ -88,9 +75,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.axios.post('/api/author', _this.author).then(function (response) {
+                return _this.axios.post('/api/educational_level', _this.educational_level).then(function (response) {
                   _this.$router.push({
-                    name: "mostrarAuthor"
+                    name: "mostrarEducational_level"
                   });
                 })["catch"](function (error) {
                   console.log(error);
@@ -988,75 +975,23 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.author.name,
-                          expression: "author.name"
+                          value: _vm.educational_level.name,
+                          expression: "educational_level.name"
                         }
                       ],
                       staticClass: "form-control",
                       attrs: { type: "text" },
-                      domProps: { value: _vm.author.name },
+                      domProps: { value: _vm.educational_level.name },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.$set(_vm.author, "name", $event.target.value)
-                        }
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 mb-2" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("DIRECCION")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.author.address,
-                          expression: "author.address"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.author.address },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.author, "address", $event.target.value)
-                        }
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 mb-2" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("TELEFONO")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.author.phone,
-                          expression: "author.phone"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.author.phone },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.author, "phone", $event.target.value)
+                          _vm.$set(
+                            _vm.educational_level,
+                            "name",
+                            $event.target.value
+                          )
                         }
                       }
                     })
@@ -1078,7 +1013,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Crear Autores")])
+      _c("h4", [_vm._v("Crear Nivel Educativo")])
     ])
   },
   function() {

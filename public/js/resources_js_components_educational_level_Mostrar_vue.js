@@ -979,7 +979,7 @@ var render = function() {
           "router-link",
           {
             staticClass: "btn btn-success",
-            attrs: { to: { name: "crearAuthor" } }
+            attrs: { to: { name: "crearEducational_level" } }
           },
           [_c("i", { staticClass: "fas fa-plus-circle" })]
         )
