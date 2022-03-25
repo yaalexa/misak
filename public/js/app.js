@@ -2098,8 +2098,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -2225,16 +2223,16 @@ var EditarA = function EditarA() {
 }; // componentes para author
 
 
-var Mostrartype_material = function Mostrartype_material() {
-  return __webpack_require__.e(/*! import() */ "resources_js_components_type_material_Mostrar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/type_material/Mostrar.vue */ "./resources/js/components/type_material/Mostrar.vue"));
+var MostrarTypematerial = function MostrarTypematerial() {
+  return Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './components/typematerial/Mostrar.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; });
 };
 
-var Creartype_material = function Creartype_material() {
-  return __webpack_require__.e(/*! import() */ "resources_js_components_type_material_Crear_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/type_material/Crear.vue */ "./resources/js/components/type_material/Crear.vue"));
+var CrearTypematerial = function CrearTypematerial() {
+  return Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './components/typematerial/Crear.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; });
 };
 
-var Editartype_material = function Editartype_material() {
-  return __webpack_require__.e(/*! import() */ "resources_js_components_type_material_Editar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/type_material/Editar.vue */ "./resources/js/components/type_material/Editar.vue"));
+var EditarTypematerial = function EditarTypematerial() {
+  return Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './components/typematerial/Editar.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; });
 };
 
 var routes = [{
@@ -2268,17 +2266,17 @@ var routes = [{
   component: EditarA
 }, //rutas de los componentes de tipo de material
 {
-  name: 'mostrartype_material',
-  path: '/author',
-  component: Mostrartype_material
+  name: 'mostrarTypematerial',
+  path: '/',
+  component: MostrarTypematerial
 }, {
-  name: 'creartype_material',
+  name: 'crearTypematerial',
   path: '/crear',
-  component: Creartype_material
+  component: CrearTypematerial
 }, {
-  name: 'editartype_material',
+  name: 'editarTypematerial',
   path: '/editar/:id',
-  component: Editartype_material
+  component: EditarTypematerial
 }, // formulario contacto
 {
   name: 'contacto',
@@ -19869,7 +19867,7 @@ var render = function() {
                         staticClass: "nav-link",
                         attrs: {
                           "exact-active-class": "active",
-                          to: "/type_material"
+                          to: "/typematerial"
                         }
                       },
                       [_vm._v("Tipo de material")]
@@ -19908,25 +19906,6 @@ var render = function() {
                         attrs: { "exact-active-class": "active", to: "/areas" }
                       },
                       [_vm._v("Areas")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
-                        attrs: {
-                          "exact-active-class": "active",
-                          to: "/type_material"
-                        }
-                      },
-                      [_vm._v("Tipo de material")]
                     )
                   ],
                   1
@@ -35468,7 +35447,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.3","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_Home_vue":1,"resources_js_components_Contacto_vue":1,"resources_js_components_blog_Mostrar_vue":1,"resources_js_components_blog_Crear_vue":1,"resources_js_components_blog_Editar_vue":1,"resources_js_components_author_Mostrar_vue":1,"resources_js_components_author_Crear_vue":1,"resources_js_components_author_Editar_vue":1,"resources_js_components_type_material_Mostrar_vue":1,"resources_js_components_type_material_Crear_vue":1,"resources_js_components_type_material_Editar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_Home_vue":1,"resources_js_components_Contacto_vue":1,"resources_js_components_blog_Mostrar_vue":1,"resources_js_components_blog_Crear_vue":1,"resources_js_components_blog_Editar_vue":1,"resources_js_components_author_Mostrar_vue":1,"resources_js_components_author_Crear_vue":1,"resources_js_components_author_Editar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

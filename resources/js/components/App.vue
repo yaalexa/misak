@@ -16,7 +16,7 @@
                         <router-link exact-active-class="active" to="/author" class="nav-link" aria-current="page">Autores</router-link>
                     </li>
                      <li class="nav-item">
-                        <router-link exact-active-class="active" to="/type_material" class="nav-link">Tipo de material</router-link>
+                        <router-link exact-active-class="active" to="/typematerial" class="nav-link">Tipo de material</router-link>
                     </li>   
                      <li class="nav-item">
                         <router-link exact-active-class="active" to="/contacto" class="nav-link">Perfil</router-link>
@@ -25,9 +25,7 @@
                     <li class="nav-item">
                         <router-link exact-active-class="active" to="/areas" class="nav-link">Areas</router-link>
                     </li>   
-                     <li class="nav-item">
-                        <router-link exact-active-class="active" to="/type_material" class="nav-link">Tipo de material</router-link>
-                    </li>   
+                     
                      <li class="nav-item">
                         <router-link exact-active-class="active" to="/descargas" class="nav-link">Descargas</router-link>
                     </li>          

@@ -11,9 +11,9 @@ const CrearA = () => import('./components/author/Crear.vue')
 const EditarA = () => import('./components/author/Editar.vue')
 
 // componentes para author
-const Mostrartype_material = () => import('./components/type_material/Mostrar.vue')
-const Creartype_material = () => import('./components/type_material/Crear.vue')
-const Editartype_material= () => import('./components/type_material/Editar.vue')
+const MostrarTypematerial = () => import('./components/typematerial/Mostrar.vue')
+const CrearTypematerial = () => import('./components/typematerial/Crear.vue')
+const EditarTypematerial= () => import('./components/typematerial/Editar.vue')
 
 export const routes = [
     {
@@ -54,19 +54,19 @@ export const routes = [
     },
 //rutas de los componentes de tipo de material
 {
-    name: 'mostrartype_material',
-    path: '/author',
-    component: Mostrartype_material
+    name: 'mostrarTypematerial',
+    path: '/',
+    component: MostrarTypematerial
 },
 {
-    name: 'creartype_material',
+    name: 'crearTypematerial',
     path: '/crear',
-    component: Creartype_material
+    component: CrearTypematerial
 },
 {
-    name: 'editartype_material',
+    name: 'editarTypematerial',
     path: '/editar/:id',
-    component: Editartype_material
+    component: EditarTypematerial
 },
     // formulario contacto
      {
