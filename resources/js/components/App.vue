@@ -24,9 +24,11 @@
                     </li>   
                      <li class="nav-item">
                         <router-link exact-active-class="active" to="/type_material" class="nav-link">Tipo de material</router-link>
-                    </li>            
-                     
-                            
+                    </li>         
+                    <li class="nav-item">
+                        <router-link exact-active-class="active" to="/material" class="nav-link">Material</router-link>
+                    </li>      
+       
                 </ul>
                 
                 </div>
