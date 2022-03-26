@@ -26,9 +26,9 @@ const MostrarType_material = () => import('./components/type_material/Mostrar.vu
 const CrearType_material= () => import('./components/type_material/Crear.vue')
 const EditarType_material= () => import('./components/type_material/Editar.vue')
 // componentes para tipo de material
-const MostrarMaterial = () => import('./components/Material/Mostrar.vue')
-const CrearMaterial= () => import('./components/Material/Crear.vue')
-const EditarMaterial= () => import('./components/Material/Editar.vue')
+const MostrarMaterial = () => import('./components/material/Mostrar.vue')
+const CrearMaterial= () => import('./components/material/Crear.vue')
+const EditarMaterial= () => import('./components/material/Editar.vue')
 export const routes = [
     {
         name: 'home',
