@@ -2251,6 +2251,19 @@ var CrearEducational_level = function CrearEducational_level() {
 
 var EditarEducational_level = function EditarEducational_level() {
   return __webpack_require__.e(/*! import() */ "resources_js_components_educational_level_Editar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/educational_level/Editar.vue */ "./resources/js/components/educational_level/Editar.vue"));
+}; // componentes para tipo de materiales
+
+
+var MostrarType_material = function MostrarType_material() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_type_material_Mostrar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/type_material/Mostrar.vue */ "./resources/js/components/type_material/Mostrar.vue"));
+};
+
+var CrearType_material = function CrearType_material() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_type_material_Crear_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/type_material/Crear.vue */ "./resources/js/components/type_material/Crear.vue"));
+};
+
+var EditarType_material = function EditarType_material() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_type_material_Editar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/type_material/Editar.vue */ "./resources/js/components/type_material/Editar.vue"));
 };
 
 var routes = [{
@@ -2321,6 +2334,19 @@ var routes = [{
   name: 'editarEducational_level',
   path: '/editar/:id',
   component: EditarEducational_level
+}, //rutas de los componentes tipo de componentes
+{
+  name: 'MostrarType_material',
+  path: '/type_material',
+  component: MostrarType_material
+}, {
+  name: 'crearType_material',
+  path: '/crear',
+  component: CrearType_material
+}, {
+  name: 'editarType_material',
+  path: '/editar/:id',
+  component: EditarType_material
 }, // formulario contacto
 {
   name: 'contacto',
@@ -19949,7 +19975,7 @@ var render = function() {
                         staticClass: "nav-link",
                         attrs: {
                           "exact-active-class": "active",
-                          to: "/typematerial"
+                          to: "/type_material"
                         }
                       },
                       [_vm._v("Tipo de material")]
@@ -35437,7 +35463,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.3","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_Home_vue":1,"resources_js_components_Contacto_vue":1,"resources_js_components_blog_Mostrar_vue":1,"resources_js_components_blog_Crear_vue":1,"resources_js_components_blog_Editar_vue":1,"resources_js_components_author_Mostrar_vue":1,"resources_js_components_author_Crear_vue":1,"resources_js_components_author_Editar_vue":1,"resources_js_components_areas_Mostrar_vue":1,"resources_js_components_areas_Crear_vue":1,"resources_js_components_areas_Editar_vue":1,"resources_js_components_editorial_Mostrar_vue":1,"resources_js_components_editorial_Crear_vue":1,"resources_js_components_editorial_Editar_vue":1,"resources_js_components_educational_level_Mostrar_vue":1,"resources_js_components_educational_level_Crear_vue":1,"resources_js_components_educational_level_Editar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_Home_vue":1,"resources_js_components_Contacto_vue":1,"resources_js_components_blog_Mostrar_vue":1,"resources_js_components_blog_Crear_vue":1,"resources_js_components_blog_Editar_vue":1,"resources_js_components_author_Mostrar_vue":1,"resources_js_components_author_Crear_vue":1,"resources_js_components_author_Editar_vue":1,"resources_js_components_areas_Mostrar_vue":1,"resources_js_components_areas_Crear_vue":1,"resources_js_components_areas_Editar_vue":1,"resources_js_components_editorial_Mostrar_vue":1,"resources_js_components_editorial_Crear_vue":1,"resources_js_components_editorial_Editar_vue":1,"resources_js_components_educational_level_Mostrar_vue":1,"resources_js_components_educational_level_Crear_vue":1,"resources_js_components_educational_level_Editar_vue":1,"resources_js_components_type_material_Mostrar_vue":1,"resources_js_components_type_material_Crear_vue":1,"resources_js_components_type_material_Editar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
