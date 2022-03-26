@@ -21,10 +21,10 @@ const EditarEditorial= () => import('./components/editorial/Editar.vue')
 const MostrarEducational_level = () => import('./components/educational_level/Mostrar.vue')
 const CrearEducational_level= () => import('./components/educational_level/Crear.vue')
 const EditarEducational_level= () => import('./components/educational_level/Editar.vue')
-// componentes para material
-const MostrarMaterial = () => import('./components/material/Mostrar.vue')
-const CrearMaterial= () => import('./components/material/Crear.vue')
-const EditarMaterial= () => import('./components/material/Editar.vue')
+// componentes para tipo de materiales
+const MostrarType_material = () => import('./components/type_material/Mostrar.vue')
+const CrearType_material= () => import('./components/type_material/Crear.vue')
+const EditarType_material= () => import('./components/type_material/Editar.vue')
 export const routes = [
     {
         name: 'home',
@@ -110,26 +110,26 @@ export const routes = [
     path: '/editar/:id',
     component: EditarEducational_level
 },
+//rutas de los componentes tipo de componentes
+{
+    name: 'MostrarType_material',
+    path: '/type_material',
+    component: MostrarType_material
+},
+{
+    name: 'crearType_material',
+    path: '/crear',
+    component: CrearType_material
+},
+{
+    name: 'editarType_material',
+    path: '/editar/:id',
+    component: EditarType_material
+},
     // formulario contacto
      {
         name: 'contacto',
         path: '/contacto',
         component: Contacto
-    },
-      //rutas de los componentes de material
-{
-    name: 'mostrarMaterial',
-    path: '/material',
-    component: MostrarMaterial
-},
-{
-    name: 'crearMaterial',
-    path: '/crear',
-    component: CrearMaterial
-},
-{
-    name: 'editarMaterial',
-    path: '/editar/:id',
-    component: EditarMaterial
-}
+    }
 ]

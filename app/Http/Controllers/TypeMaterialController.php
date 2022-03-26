@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Typematerial;
+use App\Models\type_material;
 use Illuminate\Http\Request;
 
 class TypeMaterialController extends Controller
@@ -13,8 +13,8 @@ class TypeMaterialController extends Controller
     */
    public function index()
    {
-       $typematerial = Typematerial::all(['name']);
-       return response()->json($typematerial);
+       $type_material = type_material::all(['name']);
+       return response()->json($type_material);
    }
 
    
@@ -27,9 +27,9 @@ class TypeMaterialController extends Controller
     */
    public function store(Request $request)
    {
-       $typematerial = Typematerial::create($request->post());
+       $type_material = type_material::create($request->post());
        return response()->json([           
-           'type_material'=>$typematerial
+           'type_material'=>$type_material
        ]);
    }
 
@@ -39,9 +39,9 @@ class TypeMaterialController extends Controller
     * @param  \App\Models\type_material  $type_material
     * @return \Illuminate\Http\Response
     */
-   public function show(Typematerial $typematerial)
+   public function show(type_material $type_material)
    {
-       return response()->json($typematerial);
+       return response()->json($type_material);
    }
 
    /**
@@ -59,11 +59,11 @@ class TypeMaterialController extends Controller
     * @param  \App\Models\type_material  $type_material
     * @return \Illuminate\Http\Response
     */
-   public function update(Request $request, Typematerial $typematerial)
+   public function update(Request $request, type_material $type_material)
    {
-       $typematerial->fill($request->post())->save();
+       $type_material->fill($request->post())->save();
        return response()->json([            
-           'typematerial'=>$typematerial
+           'type_material'=>$type_material
        ]);
    }
 
@@ -73,9 +73,9 @@ class TypeMaterialController extends Controller
     * @param  \App\Models\type_material  $type_material
     * @return \Illuminate\Http\Response
     */
-   public function destroy(Typematerial $typematerial)
+   public function destroy(type_material $type_material)
    {
-       $typematerial->delete();
+       $type_material->delete();
        return response()->json([
            'mensaje'=>'¡Registro eliminado correctamente!'
        ]);
