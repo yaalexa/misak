@@ -14,6 +14,7 @@ Route::resource('author',App\Http\Controllers\AuthorController::class);
 Route::resource('areas',App\Http\Controllers\AreasController::class);
 Route::resource('editorial',App\Http\Controllers\EditorialController::class);
 Route::resource('educational_level',App\Http\Controllers\EducationalLevelController::class);
+Route::resource('material',App\Http\Controllers\MaterialController::class);
 //Route::resource('typematerial',App\Http\Controllers\TypeMaterialController::class);
 /*Route::get('/author',[AuthorController::class,'index']);// muestra todos los registros
 Route::post('/author',[AuthorController::class,'store']);//crea un registro

@@ -21,6 +21,10 @@ const EditarEditorial= () => import('./components/editorial/Editar.vue')
 const MostrarEducational_level = () => import('./components/educational_level/Mostrar.vue')
 const CrearEducational_level= () => import('./components/educational_level/Crear.vue')
 const EditarEducational_level= () => import('./components/educational_level/Editar.vue')
+// componentes para material
+const MostrarMaterial = () => import('./components/material/Mostrar.vue')
+const CrearMaterial= () => import('./components/material/Crear.vue')
+const EditarMaterial= () => import('./components/material/Editar.vue')
 export const routes = [
     {
         name: 'home',
@@ -111,5 +115,21 @@ export const routes = [
         name: 'contacto',
         path: '/contacto',
         component: Contacto
-    }
+    },
+      //rutas de los componentes de material
+{
+    name: 'mostrarMaterial',
+    path: '/material',
+    component: MostrarMaterial
+},
+{
+    name: 'crearMaterial',
+    path: '/crear',
+    component: CrearMaterial
+},
+{
+    name: 'editarMaterial',
+    path: '/editar/:id',
+    component: EditarMaterial
+}
 ]
