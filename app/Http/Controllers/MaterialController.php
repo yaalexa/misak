@@ -15,6 +15,8 @@ class MaterialController extends Controller
     public function index()
     {
         //
+        $material= material::all();
+        return $material;
     }
 
     /**
@@ -24,7 +26,7 @@ class MaterialController extends Controller
      */
     public function create()
     {
-        //
+        return view('material.create');
     }
 
     /**
@@ -35,10 +37,17 @@ class MaterialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $material = new Material();
+        $material->name = $request->name;
+        $material->isbn = $request->isbn;
+        $material->year = $request->year;
+        $material->num_pages = $request->num_pages;
+        $material->pdf = $request->pdf;
+        $material->img = $request->img;
+            
+        $material->save();
     }
-
-    /**
+     /**
      * Display the specified resource.
      *
      * @param  \App\Models\books  $books
@@ -69,7 +78,15 @@ class MaterialController extends Controller
      */
     public function update(Request $request, material $books)
     {
-        //
+        $material = Material::findOrFail($request->id);
+        $material->name = $request->name;
+        $material->isbn = $request->isbn;
+        $material->year = $request->year;
+        $material->num_pages = $request->num_pages;
+        $material->pdf = $request->pdf;
+        $material->img = $request->img;
+            
+        $material->save();
     }
 
     /**
@@ -78,8 +95,10 @@ class MaterialController extends Controller
      * @param  \App\Models\books  $books
      * @return \Illuminate\Http\Response
      */
-    public function destroy(material $books)
+    public function destroy(Request $request,material $material)
     {
-        //
+        $material = Material::destroy($request->id);
+        return $material;
     }
 }
+
