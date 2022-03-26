@@ -2090,16 +2090,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -19883,22 +19873,6 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "nav-link",
-                        attrs: { "exact-active-class": "active", to: "/blogs" }
-                      },
-                      [_vm._v("Categoria")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
                         attrs: {
                           "exact-active-class": "active",
                           to: "/author",
@@ -19979,44 +19953,6 @@ var render = function() {
                         }
                       },
                       [_vm._v("Tipo de material")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
-                        attrs: {
-                          "exact-active-class": "active",
-                          to: "/contacto"
-                        }
-                      },
-                      [_vm._v("Perfil")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
-                        attrs: {
-                          "exact-active-class": "active",
-                          to: "/descargas"
-                        }
-                      },
-                      [_vm._v("Descargas")]
                     )
                   ],
                   1

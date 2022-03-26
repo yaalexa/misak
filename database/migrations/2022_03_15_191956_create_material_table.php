@@ -19,6 +19,7 @@ class CreateMaterialTable extends Migration
             $table->string('isbn');
             $table->year('year');
             $table->integer('num_pages');
+            $table->integer('priority');
             $table->string('pdf');
             $table->string('img');
 
