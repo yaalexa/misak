@@ -43,7 +43,14 @@ class MaterialController extends Controller
         $material->year = $request->year;
         $material->num_pages = $request->num_pages;
         $material->pdf = $request->pdf;
+        $material->priority = $request->priority;
         $material->img = $request->img;
+        $material->material_users_id = $request->material_users_id;
+        $material->type_material_id = $request->type_material_id;
+        $material->author_books_id = $request->author_books_id;
+        $material->editorial_id = $request->editorial_id;
+        $material->area_id = $request->area_id;
+        $material->material_educational_leves_id = $request->material_educational_leves_id;
             
         $material->save();
     }
@@ -76,7 +83,7 @@ class MaterialController extends Controller
      * @param  \App\Models\books  $books
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, material $books)
+    public function update(Request $request,  $material)
     {
         $material = Material::findOrFail($request->id);
         $material->name = $request->name;
@@ -84,7 +91,14 @@ class MaterialController extends Controller
         $material->year = $request->year;
         $material->num_pages = $request->num_pages;
         $material->pdf = $request->pdf;
+        $material->priority = $request->priority;
         $material->img = $request->img;
+        $material->material_users_id = $request->material_users_id;
+        $material->type_material_id = $request->type_material_id;
+        $material->author_books_id = $request->author_books_id;
+        $material->editorial_id = $request->editorial_id;
+        $material->area_id = $request->area_id;
+        $material->material_educational_leves_id = $request->material_educational_leves_id;
             
         $material->save();
     }

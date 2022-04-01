@@ -12,6 +12,18 @@ class material extends Model
     protected $table="material";
     protected $primaryKey="id";
     protected $fillable=[
-        'name','isbn','year','num_pages','pdf'
+        "name",
+          "isbn" ,
+          "year", 
+          "num_pages",
+          "priority",
+          "pdf",
+          "img",
+          "material_users_id",
+          "type_material_id",
+          "author_books_id",
+          "editorial_id" ,
+          "area_id",
+          "material_educational_leves_id"
     ];
 }
