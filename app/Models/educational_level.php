@@ -14,4 +14,7 @@ class educational_level extends Model
     protected $fillable=[
         'name'
     ];
+    public function material_education_level(){
+        return $this->belongsToMany('App\Models\material_educational_level', 'material_educational_level_id','id');
+    }
 }

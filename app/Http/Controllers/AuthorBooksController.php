@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\author_books;
+use App\Models\author;
 use Illuminate\Http\Request;
 
 class AuthorBooksController extends Controller
@@ -14,7 +15,9 @@ class AuthorBooksController extends Controller
      */
     public function index()
     {
-        //
+        $author_books = author_books::all(['author_id']);
+        $author_books = author::all(['id','name','address','phone']);
+        return response()->json($author_books);
     }
 
     /**
@@ -24,7 +27,9 @@ class AuthorBooksController extends Controller
      */
     public function create()
     {
-        //
+        $author_books = new author_books();
+        $author_books = author::pluck('id','name','address','phone');
+        return view('users.author_books',compact('author_books'));
     }
 
     /**
@@ -35,7 +40,9 @@ class AuthorBooksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $author_books = request()->except('_token');
+        author_books::insert($author_books);
+        return response()->json($author_books);
     }
 
     /**
@@ -55,9 +62,11 @@ class AuthorBooksController extends Controller
      * @param  \App\Models\author_books  $author_books
      * @return \Illuminate\Http\Response
      */
-    public function edit(author_books $author_books)
+    public function edit($id)
     {
-        //
+        $author_books=author_books::findOrFail($id);
+        $author_books = author::pluck('id','name','address','phone');
+        return view('edit.edit_author_books', compact('author_books'));
     }
 
     /**
@@ -67,9 +76,12 @@ class AuthorBooksController extends Controller
      * @param  \App\Models\author_books  $author_books
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, author_books $author_books)
+    public function update(Request $request, author_books  $id)
     {
-        //
+        $id->fill($request->post())->save();
+        return response()->json([            
+            'author_books'=>$id
+        ]);
     }
 
     /**
@@ -78,8 +90,9 @@ class AuthorBooksController extends Controller
      * @param  \App\Models\author_books  $author_books
      * @return \Illuminate\Http\Response
      */
-    public function destroy(author_books $author_books)
+    public function destroy(author_books $author_books,$id)
     {
-        //
+        author_books::destroy($id);
+        return redirect('author_books');
     }
 }

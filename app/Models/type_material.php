@@ -13,4 +13,8 @@ class type_material extends Model
     protected $fillable=[
         'name'
     ];
+
+    public function type_materials(){
+        return $this->hasMany('App\Models\material', 'type_material_id','id');
+    }
 }

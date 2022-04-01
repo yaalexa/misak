@@ -16,4 +16,8 @@ class editorial extends Model
     protected $fillable=[
         'name'
     ];
+
+    public function editorials(){
+        return $this->hasMany('App\Models\material', 'editorial_id','id');
+    }
 }

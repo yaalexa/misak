@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\material_educational_level;
+use App\Models\educational_level;
 use Illuminate\Http\Request;
 
 class MaterialEducationalLevelController extends Controller
@@ -14,7 +15,9 @@ class MaterialEducationalLevelController extends Controller
      */
     public function index()
     {
-        //
+        $material_educational_level = material_educational_level::all(['educational_level_id']);
+        $material_educational_level = educational_level::all(['id','name']);
+        return response()->json($material_educational_level);
     }
 
     /**
@@ -24,7 +27,9 @@ class MaterialEducationalLevelController extends Controller
      */
     public function create()
     {
-        //
+        $material_educational_level = new material_educational_level();
+        $material_educational_level = educational_level::pluck('name','id');
+        return view('users.material_educational_level',compact('material_educational_level'));
     }
 
     /**
@@ -35,7 +40,9 @@ class MaterialEducationalLevelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $material_educational_level = request()->except('_token');
+        material_educational_level::insert($material_educational_level);
+        return response()->json($material_educational_level);
     }
 
     /**
@@ -55,9 +62,11 @@ class MaterialEducationalLevelController extends Controller
      * @param  \App\Models\material_educational_level  $material_educational_level
      * @return \Illuminate\Http\Response
      */
-    public function edit(material_educational_level $material_educational_level)
+    public function edit(material_educational_level $material_educational_level, $id)
     {
-        //
+        $material_educational_level=material_educational_level::findOrFail($id);
+        $material_educational_level = educational_level::pluck('name','id');
+        return view('edit.material_educational_level', compact('material_educational_level'));
     }
 
     /**
@@ -67,9 +76,12 @@ class MaterialEducationalLevelController extends Controller
      * @param  \App\Models\material_educational_level  $material_educational_level
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, material_educational_level $material_educational_level)
+    public function update(Request $request, material_educational_level $id)
     {
-        //
+        $id->fill($request->post())->save();
+        return response()->json([            
+            'material_educational_level'=>$id
+        ]);
     }
 
     /**
@@ -78,8 +90,9 @@ class MaterialEducationalLevelController extends Controller
      * @param  \App\Models\material_educational_level  $material_educational_level
      * @return \Illuminate\Http\Response
      */
-    public function destroy(material_educational_level $material_educational_level)
+    public function destroy(material_educational_level $material_educational_level,$id)
     {
-        //
+        material_educational_level::destroy($id);
+        return redirect('material_educational_level');
     }
 }
