@@ -5,12 +5,101 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\rols;
 use Illuminate\Support\Facades\Hash;
 
 
 
 class UserController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $user = User::all(['name','full_name','document_type','document_number','certificate_misak','email','password']);
+        $user = rols::all(['id','name']);
+        return response()->json($user);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $user = new User();
+        $user = rols::pluck('name','id');
+        return view('user.create',compact('user'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $user = request()->except('_token');
+        User::insert($user);
+        return response()->json($user);
+    }
+     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function show(User $user)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $user=User::findOrFail($id);
+        $user = rols::pluck('name','id');
+        return view('edit.edit_user', compact('user'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request,  $id )
+    {
+        $id->fill($request->post())->save();
+        return response()->json([            
+            'User'=>$id
+        ]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(User $user, $id)
+    {
+        User::destroy($id);
+        return redirect('user');
+    }
+
+
     public function register(Request $request) {
         $request->validate([
             'name' => 'required',

@@ -14,4 +14,8 @@ class areas extends Model
     protected $fillable=[
         'name'
     ];
+
+    public function areas(){
+        return $this->hasMany('App\Models\material', 'area_id','id');
+    }
 }

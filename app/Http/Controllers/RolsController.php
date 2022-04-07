@@ -14,7 +14,8 @@ class RolsController extends Controller
      */
     public function index()
     {
-        //
+        $rols = rols::all(['id','name']);
+        return response()->json($rols);
     }
 
     /**
@@ -24,7 +25,8 @@ class RolsController extends Controller
      */
     public function create()
     {
-        //
+        $rols = new rols();
+        return view('rols.create',compact('rols'));
     }
 
     /**
@@ -35,7 +37,9 @@ class RolsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rols = request()->except('_token');
+        rols::insert($rols);
+        return response()->json($rols);
     }
 
     /**
@@ -55,9 +59,10 @@ class RolsController extends Controller
      * @param  \App\Models\rols  $rols
      * @return \Illuminate\Http\Response
      */
-    public function edit(rols $rols)
+    public function edit(rols $rols,$id)
     {
-        //
+        $rols=rols::findOrFail($id);
+        return view('edit.edit_user', compact('rols'));
     }
 
     /**
@@ -67,9 +72,12 @@ class RolsController extends Controller
      * @param  \App\Models\rols  $rols
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, rols $rols)
+    public function update(Request $request, rols $id)
     {
-        //
+        $id->fill($request->post())->save();
+        return response()->json([            
+            'User'=>$id
+        ]);
     }
 
     /**
@@ -78,8 +86,9 @@ class RolsController extends Controller
      * @param  \App\Models\rols  $rols
      * @return \Illuminate\Http\Response
      */
-    public function destroy(rols $rols)
+    public function destroy(rols $rols,$id)
     {
-        //
+        rols::destroy($id);
+        return redirect('rols');
     }
 }

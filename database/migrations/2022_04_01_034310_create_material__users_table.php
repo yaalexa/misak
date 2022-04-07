@@ -13,12 +13,15 @@ class CreateMaterialUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('material_users', function (Blueprint $table) {
-            $table->id();
+        Schema::create('material__users', function (Blueprint $table) {
+            $table->id()->unique();
             $table->string('manejo_users');
             $table->string('detalle_material');
             $table->dateTime('date_download');
             $table->timestamps();
+            
+            $table->unsignedBigInteger('material_id');
+            $table->foreign('material_id')->references('id')->on('materials')->onDelete('cascade')->onUpdate('cascade');
 
             $table->unsignedBigInteger('users_id');
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
@@ -32,6 +35,6 @@ class CreateMaterialUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('material_users');
+        Schema::dropIfExists('material__users');
     }
 }

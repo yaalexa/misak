@@ -13,12 +13,18 @@ class CreateMaterialEducationalLevelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('material_educational_levels', function (Blueprint $table) {
-            $table->id();
+        Schema::create('material__educational_levels', function (Blueprint $table) {
+            $table->id()->unique();
             $table->timestamps();
+
+            $table->unsignedBigInteger('material_id');
+            $table->foreign('material_id')->references('id')->on('materials')->onDelete('cascade')->onUpdate('cascade');
+
 
             $table->unsignedBigInteger('educational_level_id');
             $table->foreign('educational_level_id')->references('id')->on('educational_levels')->onDelete('cascade')->onUpdate('cascade');
+
+       
         });
     }
 
@@ -29,6 +35,6 @@ class CreateMaterialEducationalLevelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('material_educational_levels');
+        Schema::dropIfExists('material__educational_levels');
     }
 }

@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\material;
+use App\Models\material_users;
+use App\Models\material_educational_level;
+use App\Models\areas;
+use App\Models\editorial;
+use App\Models\type_material;
+use App\Models\author_books;
 use Illuminate\Http\Request;
 
 class MaterialController extends Controller
@@ -14,9 +20,14 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        //
-        $material= material::all();
-        return $material;
+        $material = material::all(['name','isbn','year','num_pages','priority','pdf','img']);
+        $material = areas::all(['name']);
+        $material = material_users::all(['material_users_id']);
+        $material = material_educational_level::all(['material_educational_level_id']);
+        $material = editorial::all(['id','name']);
+        $material = type_material::all(['id','name']);
+        $material = author_books::all(['author_id']);
+        return response()->json($material);
     }
 
     /**
@@ -26,7 +37,14 @@ class MaterialController extends Controller
      */
     public function create()
     {
-        return view('material.create');
+        $material = new material();
+        $material = areas::pluck('name','id');
+        $material = material_users::pluck('users_id');
+        $material = material_educational_level::pluck('material_educational_level_id');
+        $material = editorial::pluck('name');
+        $material = type_material::pluck('name');
+        $material = author_books::pluck('author_id');
+        return view('material.create',compact('material'));
     }
 
     /**
@@ -37,22 +55,9 @@ class MaterialController extends Controller
      */
     public function store(Request $request)
     {
-        $material = new Material();
-        $material->name = $request->name;
-        $material->isbn = $request->isbn;
-        $material->year = $request->year;
-        $material->num_pages = $request->num_pages;
-        $material->pdf = $request->pdf;
-        $material->priority = $request->priority;
-        $material->img = $request->img;
-        $material->material_users_id = $request->material_users_id;
-        $material->type_material_id = $request->type_material_id;
-        $material->author_books_id = $request->author_books_id;
-        $material->editorial_id = $request->editorial_id;
-        $material->area_id = $request->area_id;
-        $material->material_educational_leves_id = $request->material_educational_leves_id;
-            
-        $material->save();
+        $material = request()->except('_token');
+        material::insert($material);
+        return response()->json($material);
     }
      /**
      * Display the specified resource.
@@ -71,9 +76,16 @@ class MaterialController extends Controller
      * @param  \App\Models\books  $books
      * @return \Illuminate\Http\Response
      */
-    public function edit(material $books)
+    public function edit($id)
     {
-        //
+        $material=material::findOrFail($id);
+        $material = areas::pluck('name','id');
+        $material = material_users::pluck('users_id');
+        $material = material_educational_level::pluck('material_educational_level_id');
+        $material = editorial::pluck('id','name');
+        $material = type_material::pluck('id','name');
+        $material = author_books::pluck('author_id');
+        return view('edit.edit_material', compact('material'));
     }
 
     /**
@@ -83,24 +95,12 @@ class MaterialController extends Controller
      * @param  \App\Models\books  $books
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $material)
+    public function update(Request $request,  $id )
     {
-        $material = Material::findOrFail($request->id);
-        $material->name = $request->name;
-        $material->isbn = $request->isbn;
-        $material->year = $request->year;
-        $material->num_pages = $request->num_pages;
-        $material->pdf = $request->pdf;
-        $material->priority = $request->priority;
-        $material->img = $request->img;
-        $material->material_users_id = $request->material_users_id;
-        $material->type_material_id = $request->type_material_id;
-        $material->author_books_id = $request->author_books_id;
-        $material->editorial_id = $request->editorial_id;
-        $material->area_id = $request->area_id;
-        $material->material_educational_leves_id = $request->material_educational_leves_id;
-            
-        $material->save();
+        $id->fill($request->post())->save();
+        return response()->json([            
+            'material'=>$id
+        ]);
     }
 
     /**
@@ -109,10 +109,10 @@ class MaterialController extends Controller
      * @param  \App\Models\books  $books
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,material $material)
+    public function destroy(material $material, $id)
     {
-        $material = Material::destroy($request->id);
-        return $material;
+        material::destroy($id);
+        return redirect('material');
     }
 }
 
