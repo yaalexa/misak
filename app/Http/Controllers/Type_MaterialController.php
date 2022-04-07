@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Type_Material;
 use Illuminate\Validation\Rules\Exist;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Author;
 use Illuminate\Http\Request;
 
-class AuthorController extends Controller
+class Type_MaterialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $author = Author::all();
-        return $author;
+        $type_material =Type_Material::all();
+        return $type_material;
     }
 
     /**
@@ -29,23 +29,19 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        $validar= Validator::make($request->all(), [
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => 'required'
-        ]); 
+         $validar= Validator::make($request->all(), [
+            'name'=> 'required|unique:type__materials'
+        ]);
         if(!$validar ->fails()){
-            $author = new Author();
+            $type_material = new Type_Material();
             
-            $author->name = $request ->name;
-            $author->address = $request ->address;
-            $author->phone = $request ->phone;
-            
-            $author->save();
+            $type_material->name = $request ->name;
+
+            $type_material->save();
 
             return response()->json([
                 'res'=> true,
-                'mensaje' => 'registro guardado' 
+                'mensaje' => 'tipo de material guardado' 
             ]);
         }else{
             return response()->json([
@@ -63,12 +59,12 @@ class AuthorController extends Controller
      */
     public function show($id)
     {
-        $author = Author::where('id',$id)
+        $type_material = Type_Material::where('id',$id)
         ->first();
-        if (isset($author)){
+        if (isset($type_material)){
             return response()->json([
                 'res'=> true,
-                'autor' => $author
+                'type_material' => $type_material 
             ]);
         }else{
             return response()->json([
@@ -76,6 +72,7 @@ class AuthorController extends Controller
                 'mensaje' => 'registro no encontrado' 
             ]);
         }
+
     }
 
     /**
@@ -88,22 +85,18 @@ class AuthorController extends Controller
     public function update(Request $request, $id)
     {
         $validar= Validator::make($request->all(), [
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => 'required'
+            'name' => "required|unique:type__materials"
         ]);
 
         if(!$validar->fails()){
-            $author = Author::find($id);
-            if(isset($author)){
-                $author->name = $request ->name;
-                $author->address = $request ->address;
-                $author->phone = $request ->phone;
+            $type_material = Type_Material::find($id);
+            if(isset($type_material)){
+                $type_material->name= $request->name;
 
-                $author->save();
+                $type_material->save();
                  return response()->json([
                 'res'=> true,
-                'mensaje' => 'autor actualizado' 
+                'mensaje' => 'tipo de material actualizado' 
             ]);
 
             }else{
@@ -123,11 +116,11 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $author = Author::find($id);
-        if(isset($author)){
-            $author->delete();
+        $type_material = Type_Material::find($id);
+        if(isset($type_material)){
+            $type_material->delete();
             return response()->json([
                 'res'=> true,
                 'mensaje' => 'exito al elimar'
@@ -140,3 +133,4 @@ class AuthorController extends Controller
         }
     }
 }
+ 

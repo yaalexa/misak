@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Material_User;
 use Illuminate\Validation\Rules\Exist;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Author;
 use Illuminate\Http\Request;
 
-class AuthorController extends Controller
+class Material_UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $author = Author::all();
-        return $author;
+        $material_user = Material_User::all();
+        return $material_user;
     }
 
     /**
@@ -30,18 +30,22 @@ class AuthorController extends Controller
     public function store(Request $request)
     {
         $validar= Validator::make($request->all(), [
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => 'required'
+            'manejo_users' => 'required',
+            'detalle_material' => 'required',
+            'date_download' => 'required',
+            'material_id' => 'required',
+            'users_id' => 'required'
         ]); 
         if(!$validar ->fails()){
-            $author = new Author();
+            $material_user = new Material_User();
             
-            $author->name = $request ->name;
-            $author->address = $request ->address;
-            $author->phone = $request ->phone;
-            
-            $author->save();
+            $material_user->manejo_users = $request ->manejo_users;
+            $material_user->detalle_material = $request ->detalle_material;
+            $material_user->date_download = $request ->date_download;
+            $material_user->material_id = $request ->material_id;
+            $material_user->users_id = $request ->users_id;
+
+            $material_user->save();
 
             return response()->json([
                 'res'=> true,
@@ -63,12 +67,12 @@ class AuthorController extends Controller
      */
     public function show($id)
     {
-        $author = Author::where('id',$id)
+        $material_user = Material_User::where('id',$id)
         ->first();
-        if (isset($author)){
+        if (isset($material_user)){
             return response()->json([
                 'res'=> true,
-                'autor' => $author
+                'material' => $material_user
             ]);
         }else{
             return response()->json([
@@ -88,22 +92,26 @@ class AuthorController extends Controller
     public function update(Request $request, $id)
     {
         $validar= Validator::make($request->all(), [
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => 'required'
+            'manejo_users' => 'required',
+            'detalle_material' => 'required',
+            'date_download' => 'required',
+            'material_id' => 'required',
+            'users_id' => 'required'
         ]);
 
         if(!$validar->fails()){
-            $author = Author::find($id);
-            if(isset($author)){
-                $author->name = $request ->name;
-                $author->address = $request ->address;
-                $author->phone = $request ->phone;
+            $material_user = Material_User::find($id);
+            if(isset($material_user)){
+                $material_user->manejo_users = $request ->manejo_users;
+                $material_user->detalle_material = $request ->detalle_material;
+                $material_user->date_download = $request ->date_download;
+                $material_user->material_id = $request ->material_id;
+                $material_user->users_id = $request ->users_id;
 
-                $author->save();
+                $material->save();
                  return response()->json([
                 'res'=> true,
-                'mensaje' => 'autor actualizado' 
+                'mensaje' => 'material actualizado' 
             ]);
 
             }else{
@@ -123,11 +131,11 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $author = Author::find($id);
-        if(isset($author)){
-            $author->delete();
+        $material_user = Material_User::find($id);
+        if(isset($material_user)){
+            $material_user->delete();
             return response()->json([
                 'res'=> true,
                 'mensaje' => 'exito al elimar'

@@ -28,23 +28,33 @@ class User extends Authenticatable
         'certificate_misak',
         'rols_id',
     ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'created_at',
+        'updated_at',
+        'remember_token'
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+<<<<<<< Updated upstream
+=======
+
+     // relacion de uno a muchos 
+     public function rol(){
+        return $this->BelongsTo('App\Rol','user_id','id');
+    }
+    //relacion de muchos a muchos
+    public function material(){
+        return $this->hasMany('App\Models\Material_User','material_id','id');
+    }
+>>>>>>> Stashed changes
 }
+
+
+   
+
+
+   
+

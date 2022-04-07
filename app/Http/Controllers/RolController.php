@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Rol;
 use Illuminate\Validation\Rules\Exist;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Author;
 use Illuminate\Http\Request;
 
-class AuthorController extends Controller
+class RolController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $author = Author::all();
-        return $author;
+        $rol =Rol::all();
+        return $rol;
     }
 
     /**
@@ -30,22 +30,20 @@ class AuthorController extends Controller
     public function store(Request $request)
     {
         $validar= Validator::make($request->all(), [
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => 'required'
-        ]); 
+            'name'=> "required|unique:rols",
+            'user_id' => "required|unique:rols"
+        ]);
         if(!$validar ->fails()){
-            $author = new Author();
+            $rol = new Rol();
             
-            $author->name = $request ->name;
-            $author->address = $request ->address;
-            $author->phone = $request ->phone;
-            
-            $author->save();
+            $rol->name = $request ->name;
+            $rol->user_id = $request ->user_id;
+
+            $rol->save();
 
             return response()->json([
                 'res'=> true,
-                'mensaje' => 'registro guardado' 
+                'mensaje' => 'Rol guardado' 
             ]);
         }else{
             return response()->json([
@@ -63,12 +61,12 @@ class AuthorController extends Controller
      */
     public function show($id)
     {
-        $author = Author::where('id',$id)
+        $rol = Rol::where('id',$id)
         ->first();
-        if (isset($author)){
+        if (isset($rol)){
             return response()->json([
                 'res'=> true,
-                'autor' => $author
+                'rol' => $rol 
             ]);
         }else{
             return response()->json([
@@ -88,22 +86,20 @@ class AuthorController extends Controller
     public function update(Request $request, $id)
     {
         $validar= Validator::make($request->all(), [
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => 'required'
+            'name' => "required|unique:rols",
+            'user_id' => "required|unique:rols"
         ]);
 
         if(!$validar->fails()){
-            $author = Author::find($id);
-            if(isset($author)){
-                $author->name = $request ->name;
-                $author->address = $request ->address;
-                $author->phone = $request ->phone;
+            $rol = Rol::find($id);
+            if(isset($rol)){
+                $rol->name= $request->name;
+                $rol->user_id= $request->user_id;
 
-                $author->save();
+                $rol->save();
                  return response()->json([
                 'res'=> true,
-                'mensaje' => 'autor actualizado' 
+                'mensaje' => 'Rol actualizado' 
             ]);
 
             }else{
@@ -125,9 +121,9 @@ class AuthorController extends Controller
      */
     public function destroy($id)
     {
-        $author = Author::find($id);
-        if(isset($author)){
-            $author->delete();
+        $rol = Rol::find($id);
+        if(isset($rol)){
+            $rol->delete();
             return response()->json([
                 'res'=> true,
                 'mensaje' => 'exito al elimar'

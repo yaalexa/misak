@@ -26,7 +26,6 @@ class UserController extends Controller
         $user->document_type = $request->document_type;
         $user->document_number = $request->document_number;
         $user->certificate_misak = $request->certificate_misak;
-        $user->rols_id = $request->rols_id; 
         $user->password = Hash::make($request->password);
         $user->save();
         

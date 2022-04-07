@@ -5,13 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class educational_level extends Model
+class Educational_level extends Model
 {
     use HasFactory;
-
-    protected $table="educational_levels";
-    protected $primaryKey="id";
-    protected $fillable=[
+    protected $fillable = [
         'name'
     ];
+<<<<<<< Updated upstream
+=======
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
+    //relacion de muchos a muchos
+    public function material(){
+        return $this->hasMany('App\Models\Material_Educational_Level','educational_level_id','id');
+    }
+>>>>>>> Stashed changes
 }

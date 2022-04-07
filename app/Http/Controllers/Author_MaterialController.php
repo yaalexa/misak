@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Author_Material;
 use Illuminate\Validation\Rules\Exist;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Author;
 use Illuminate\Http\Request;
 
-class AuthorController extends Controller
+class Author_MaterialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $author = Author::all();
-        return $author;
+        $author_material = Author_material::all();
+        return $author_material;
     }
 
     /**
@@ -30,22 +30,20 @@ class AuthorController extends Controller
     public function store(Request $request)
     {
         $validar= Validator::make($request->all(), [
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => 'required'
-        ]); 
+            'author_id'=> 'required|unique:author__materials',
+            'material_id'=> 'required|unique:author__materials'
+        ]);
         if(!$validar ->fails()){
-            $author = new Author();
+            $author_material = new Author_material();
             
-            $author->name = $request ->name;
-            $author->address = $request ->address;
-            $author->phone = $request ->phone;
-            
-            $author->save();
+            $author_material->author_id = $request ->author_id;
+            $author_material->material_id = $request ->material_id;
+
+            $author_material->save();
 
             return response()->json([
                 'res'=> true,
-                'mensaje' => 'registro guardado' 
+                'mensaje' => 'Guardado con exito' 
             ]);
         }else{
             return response()->json([
@@ -63,12 +61,12 @@ class AuthorController extends Controller
      */
     public function show($id)
     {
-        $author = Author::where('id',$id)
+        $author_material = Author_material::where('id',$id)
         ->first();
-        if (isset($author)){
+        if (isset($author_material)){
             return response()->json([
                 'res'=> true,
-                'autor' => $author
+                'author_material' => $author_material 
             ]);
         }else{
             return response()->json([
@@ -88,22 +86,20 @@ class AuthorController extends Controller
     public function update(Request $request, $id)
     {
         $validar= Validator::make($request->all(), [
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => 'required'
+            'author_id' => "required|unique:author__materials",
+            'material_id' => "required|unique:author__materials"
         ]);
 
         if(!$validar->fails()){
-            $author = Author::find($id);
-            if(isset($author)){
-                $author->name = $request ->name;
-                $author->address = $request ->address;
-                $author->phone = $request ->phone;
+            $author_material = Author_material::find($id);
+            if(isset($author_material)){
+                $author_material->author_id= $request->author_id;
+                $author_material->material_id= $request->material_id;
 
-                $author->save();
+                $author_material->save();
                  return response()->json([
                 'res'=> true,
-                'mensaje' => 'autor actualizado' 
+                'mensaje' => 'Se actualizado el registro' 
             ]);
 
             }else{
@@ -125,9 +121,9 @@ class AuthorController extends Controller
      */
     public function destroy($id)
     {
-        $author = Author::find($id);
-        if(isset($author)){
-            $author->delete();
+        $author_material = Author_material::find($id);
+        if(isset($author_material)){
+            $author_material->delete();
             return response()->json([
                 'res'=> true,
                 'mensaje' => 'exito al elimar'

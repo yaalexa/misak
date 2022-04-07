@@ -5,23 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Type_Material extends Model
+class Area extends Model
 {
     use HasFactory;
-    protected $table="type__materials";
-    
+
     protected $fillable =[
         'name'
     ];
-<<<<<<< Updated upstream
-=======
-    protected $hidden = [
+    protected $hidden =[
         'created_at',
         'updated_at'
     ];
      // relacion de uno a muchos 
      public function material(){
-        return $this->BelongsTo('App\Material','type_material_id','id');
+        return $this->BelongsTo('App\Material','area_id','id');
     }
->>>>>>> Stashed changes
 }

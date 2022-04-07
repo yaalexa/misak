@@ -5,24 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Material_Educational_level extends Model
+class Material_User extends Model
 {
     use HasFactory;
-<<<<<<< Updated upstream
-=======
     protected $fillable = [
+        'manejo_users',
+        'detalle_material',
+        'date_download',
         'material_id',
-        'educational_level_id'
+        'users_id'
     ];
+
     protected $hidden = [
         'created_at',
         'updated_at'
     ];
+    public function user(){
+        return $this->belongsTo('App\User','user_id','id');
+    }
     public function material(){
         return $this->belongsTo('App\Material','material_id','id');
     }
-    public function educational_level(){
-        return $this->belongsTo('App\Educational_Level','educational_level_id','id');
-    }
->>>>>>> Stashed changes
+
 }

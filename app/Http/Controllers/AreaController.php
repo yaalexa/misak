@@ -5,10 +5,10 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rules\Exist;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Author;
+use App\Models\Area;
 use Illuminate\Http\Request;
 
-class AuthorController extends Controller
+class AreaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class AuthorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $author = Author::all();
-        return $author;
+    { 
+        $area =Area::all();
+        return $area;
     }
 
     /**
@@ -30,22 +30,18 @@ class AuthorController extends Controller
     public function store(Request $request)
     {
         $validar= Validator::make($request->all(), [
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => 'required'
-        ]); 
+            'name'=> 'required|unique:areas'
+        ]);
         if(!$validar ->fails()){
-            $author = new Author();
+            $area = new Area();
             
-            $author->name = $request ->name;
-            $author->address = $request ->address;
-            $author->phone = $request ->phone;
-            
-            $author->save();
+            $area->name = $request ->name;
+
+            $area->save();
 
             return response()->json([
                 'res'=> true,
-                'mensaje' => 'registro guardado' 
+                'mensaje' => 'area guardada' 
             ]);
         }else{
             return response()->json([
@@ -63,12 +59,12 @@ class AuthorController extends Controller
      */
     public function show($id)
     {
-        $author = Author::where('id',$id)
+        $area = Area::where('id',$id)
         ->first();
-        if (isset($author)){
+        if (isset($area)){
             return response()->json([
                 'res'=> true,
-                'autor' => $author
+                'area' => $area 
             ]);
         }else{
             return response()->json([
@@ -88,22 +84,18 @@ class AuthorController extends Controller
     public function update(Request $request, $id)
     {
         $validar= Validator::make($request->all(), [
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => 'required'
+            'name' => "required|unique:areas"
         ]);
 
         if(!$validar->fails()){
-            $author = Author::find($id);
-            if(isset($author)){
-                $author->name = $request ->name;
-                $author->address = $request ->address;
-                $author->phone = $request ->phone;
+            $area = Area::find($id);
+            if(isset($area)){
+                $area->name= $request->name;
 
-                $author->save();
+                $area->save();
                  return response()->json([
                 'res'=> true,
-                'mensaje' => 'autor actualizado' 
+                'mensaje' => 'area actualizada' 
             ]);
 
             }else{
@@ -123,11 +115,11 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $author = Author::find($id);
-        if(isset($author)){
-            $author->delete();
+        $area = Area::find($id);
+        if(isset($area)){
+            $area->delete();
             return response()->json([
                 'res'=> true,
                 'mensaje' => 'exito al elimar'

@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Educational_Level;
 use Illuminate\Validation\Rules\Exist;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Author;
 use Illuminate\Http\Request;
 
-class AuthorController extends Controller
+class Educational_LevelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $author = Author::all();
-        return $author;
+        $educational_level =Educational_Level::all();
+        return $educational_level;
     }
 
     /**
@@ -30,22 +30,18 @@ class AuthorController extends Controller
     public function store(Request $request)
     {
         $validar= Validator::make($request->all(), [
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => 'required'
-        ]); 
+            'name'=> 'required|unique:educational_levels'
+        ]);
         if(!$validar ->fails()){
-            $author = new Author();
+            $educational_level = new Educational_Level();
             
-            $author->name = $request ->name;
-            $author->address = $request ->address;
-            $author->phone = $request ->phone;
-            
-            $author->save();
+            $educational_level->name = $request ->name;
+
+            $educational_level->save();
 
             return response()->json([
                 'res'=> true,
-                'mensaje' => 'registro guardado' 
+                'mensaje' => 'Nivel de educacion creado' 
             ]);
         }else{
             return response()->json([
@@ -63,12 +59,12 @@ class AuthorController extends Controller
      */
     public function show($id)
     {
-        $author = Author::where('id',$id)
+        $educational_level = Educational_level::where('id',$id)
         ->first();
-        if (isset($author)){
+        if (isset($educational_level)){
             return response()->json([
                 'res'=> true,
-                'autor' => $author
+                '$educational_level' => $educational_level 
             ]);
         }else{
             return response()->json([
@@ -85,25 +81,21 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
         $validar= Validator::make($request->all(), [
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => 'required'
+            'name' => "required|unique:educational_levels"
         ]);
 
         if(!$validar->fails()){
-            $author = Author::find($id);
-            if(isset($author)){
-                $author->name = $request ->name;
-                $author->address = $request ->address;
-                $author->phone = $request ->phone;
+            $educational_level = Educational_level::find($id);
+            if(isset($educational_level)){
+                $educational_level->name= $request->name;
 
-                $author->save();
+                $educational_level->save();
                  return response()->json([
                 'res'=> true,
-                'mensaje' => 'autor actualizado' 
+                'mensaje' => 'Nivel de educacion actualizado' 
             ]);
 
             }else{
@@ -123,11 +115,11 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $author = Author::find($id);
-        if(isset($author)){
-            $author->delete();
+        $educational_level = Educational_level::find($id);
+        if(isset($educational_level)){
+            $educational_level->delete();
             return response()->json([
                 'res'=> true,
                 'mensaje' => 'exito al elimar'
