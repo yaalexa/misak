@@ -132,4 +132,3 @@ class EditorialController extends Controller
         }
     }
 }
-

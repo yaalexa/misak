@@ -140,4 +140,3 @@ class AuthorController extends Controller
         }
     }
 }
-
