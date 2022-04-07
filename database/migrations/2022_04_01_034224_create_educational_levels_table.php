@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTypeMaterialsTable extends Migration
+class CreateEducationalLevelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateTypeMaterialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('type_materials', function (Blueprint $table) {
-            $table->id();
+        Schema::create('educational_levels', function (Blueprint $table) {
+            $table->id()->unique();
             $table->string('name');
             $table->timestamps();
         });
@@ -27,6 +27,6 @@ class CreateTypeMaterialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_materials');
+        Schema::dropIfExists('educational_levels');
     }
 }

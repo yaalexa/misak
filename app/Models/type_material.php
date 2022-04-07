@@ -13,8 +13,6 @@ class Type_Material extends Model
     protected $fillable =[
         'name'
     ];
-<<<<<<< Updated upstream
-=======
     protected $hidden = [
         'created_at',
         'updated_at'
@@ -23,5 +21,5 @@ class Type_Material extends Model
      public function material(){
         return $this->BelongsTo('App\Material','type_material_id','id');
     }
->>>>>>> Stashed changes
 }
+

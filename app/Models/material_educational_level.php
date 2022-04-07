@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Material_Educational_level extends Model
 {
     use HasFactory;
-<<<<<<< Updated upstream
-=======
     protected $fillable = [
         'material_id',
         'educational_level_id'
@@ -24,5 +22,5 @@ class Material_Educational_level extends Model
     public function educational_level(){
         return $this->belongsTo('App\Educational_Level','educational_level_id','id');
     }
->>>>>>> Stashed changes
 }
+

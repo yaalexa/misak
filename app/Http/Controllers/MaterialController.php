@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers\API;
 
-<<<<<<< Updated upstream
-use App\Models\material;
-=======
 use App\Http\Controllers\Controller;
-use App\Models\Material;
+use App\Models\Material_User;
 use Illuminate\Validation\Rules\Exist;
 use Illuminate\Support\Facades\Validator;
->>>>>>> Stashed changes
 use Illuminate\Http\Request;
 
-class MaterialController extends Controller
+class Material_UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,24 +17,8 @@ class MaterialController extends Controller
      */
     public function index()
     {
-<<<<<<< Updated upstream
-        //
-        $material= material::all();
-        return $material;
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('material.create');
-=======
-        $material = Material::all();
-        return $material;
->>>>>>> Stashed changes
+        $material_user = Material_User::all();
+        return $material_user;
     }
 
     /**
@@ -49,65 +29,27 @@ class MaterialController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< Updated upstream
-        $material = new Material();
-        $material->name = $request->name;
-        $material->isbn = $request->isbn;
-        $material->year = $request->year;
-        $material->num_pages = $request->num_pages;
-        $material->pdf = $request->pdf;
-        $material->priority = $request->priority;
-        $material->img = $request->img;
-        $material->material_users_id = $request->material_users_id;
-        $material->type_material_id = $request->type_material_id;
-        $material->author_books_id = $request->author_books_id;
-        $material->editorial_id = $request->editorial_id;
-        $material->area_id = $request->area_id;
-        $material->material_educational_leves_id = $request->material_educational_leves_id;
-            
-        $material->save();
-    }
-     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\books  $books
-     * @return \Illuminate\Http\Response
-     */
-    public function show(material $books)
-    {
-        //
-=======
         $validar= Validator::make($request->all(), [
-            'name' => 'required',
-            'isbn' => 'required|unique:materials',
-            'year' => 'required',
-            'num_pages' => 'required',
-            'priority' => 'required',
-            'pdf' => 'required',
-            'img' => 'required',
-            'type_material_id' => 'required', 
-            'editorial_id' => 'required',
-            'area_id' => 'required'
+            'manejo_users' => 'required',
+            'detalle_material' => 'required',
+            'date_download' => 'required',
+            'material_id' => 'required',
+            'users_id' => 'required'
         ]); 
         if(!$validar ->fails()){
-            $material = new Material();
+            $material_user = new Material_User();
             
-            $material->name = $request ->name;
-            $material->isbn = $request ->isbn;
-            $material->year = $request ->year;
-            $material->num_pages = $request ->num_pages;
-            $material->priority = $request ->priority;
-            $material->pdf = $request ->pdf;
-            $material->img = $request ->img;
-            $material->type_material_id = $request ->type_material_id;
-            $material->editorial_id = $request ->editorial_id;
-            $material->area_id = $request ->area_id;
+            $material_user->manejo_users = $request ->manejo_users;
+            $material_user->detalle_material = $request ->detalle_material;
+            $material_user->date_download = $request ->date_download;
+            $material_user->material_id = $request ->material_id;
+            $material_user->users_id = $request ->users_id;
 
-            $material->save();
+            $material_user->save();
 
             return response()->json([
                 'res'=> true,
-                'mensaje' => 'material guardado' 
+                'mensaje' => 'registro guardado' 
             ]);
         }else{
             return response()->json([
@@ -115,7 +57,6 @@ class MaterialController extends Controller
                 'mensaje' => 'error entrada duplicada' 
             ]);
         }
->>>>>>> Stashed changes
     }
 
     /**
@@ -124,19 +65,14 @@ class MaterialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-<<<<<<< Updated upstream
-    public function edit(material $books)
-    {
-        //
-=======
     public function show($id)
     {
-        $material = Material::where('id',$id)
+        $material_user = Material_User::where('id',$id)
         ->first();
-        if (isset($material)){
+        if (isset($material_user)){
             return response()->json([
                 'res'=> true,
-                'material' => $material 
+                'material' => $material_user
             ]);
         }else{
             return response()->json([
@@ -144,7 +80,6 @@ class MaterialController extends Controller
                 'mensaje' => 'registro no encontrado' 
             ]);
         }
->>>>>>> Stashed changes
     }
 
     /**
@@ -154,54 +89,24 @@ class MaterialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-<<<<<<< Updated upstream
-    public function update(Request $request,  $material)
-    {
-        $material = Material::findOrFail($request->id);
-        $material->name = $request->name;
-        $material->isbn = $request->isbn;
-        $material->year = $request->year;
-        $material->num_pages = $request->num_pages;
-        $material->pdf = $request->pdf;
-        $material->priority = $request->priority;
-        $material->img = $request->img;
-        $material->material_users_id = $request->material_users_id;
-        $material->type_material_id = $request->type_material_id;
-        $material->author_books_id = $request->author_books_id;
-        $material->editorial_id = $request->editorial_id;
-        $material->area_id = $request->area_id;
-        $material->material_educational_leves_id = $request->material_educational_leves_id;
-            
-        $material->save();
-=======
     public function update(Request $request, $id)
     {
         $validar= Validator::make($request->all(), [
-            'name' => 'required',
-            'isbn' => 'required|unique:materials',
-            'year' => 'required',
-            'num_pages' => 'required',
-            'priority' => 'required',
-            'pdf' => 'required',
-            'img' => 'required',
-            'type_material_id' => 'required', 
-            'editorial_id' => 'required',
-            'area_id' => 'required'
+            'manejo_users' => 'required',
+            'detalle_material' => 'required',
+            'date_download' => 'required',
+            'material_id' => 'required',
+            'users_id' => 'required'
         ]);
 
         if(!$validar->fails()){
-            $material = Material::find($id);
-            if(isset($material)){
-                $material->name = $request ->name;
-                $material->year = $request ->year;
-                $material->isbn = $request ->isbn;
-                $material->priority = $request ->priority;
-                $material->num_pages = $request ->num_pages;
-                $material->img = $request ->img;
-                $material->type_material_id = $request ->type_material_id;
-                $material->pdf = $request ->pdf;
-                $material->editorial_id = $request ->editorial_id;
-                $material->area_id = $request ->area_id;
+            $material_user = Material_User::find($id);
+            if(isset($material_user)){
+                $material_user->manejo_users = $request ->manejo_users;
+                $material_user->detalle_material = $request ->detalle_material;
+                $material_user->date_download = $request ->date_download;
+                $material_user->material_id = $request ->material_id;
+                $material_user->users_id = $request ->users_id;
 
                 $material->save();
                  return response()->json([
@@ -218,7 +123,6 @@ class MaterialController extends Controller
         }else{
             return "entrada duplicada";
         }
->>>>>>> Stashed changes
     }
 
     /**
@@ -227,17 +131,11 @@ class MaterialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-<<<<<<< Updated upstream
-    public function destroy(Request $request,material $material)
-    {
-        $material = Material::destroy($request->id);
-        return $material;
-=======
     public function destroy(Request $request, $id)
     {
-        $material = Material::find($id);
-        if(isset($material)){
-            $material->delete();
+        $material_user = Material_User::find($id);
+        if(isset($material_user)){
+            $material_user->delete();
             return response()->json([
                 'res'=> true,
                 'mensaje' => 'exito al elimar'
@@ -248,6 +146,6 @@ class MaterialController extends Controller
                 'mensaje' => 'falla al elimar no se encontro registro'
             ]);
         }
->>>>>>> Stashed changes
     }
 }
+

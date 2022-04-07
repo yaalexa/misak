@@ -12,8 +12,6 @@ class Editorial extends Model
     protected $fillable = [
         'name'
     ];
-<<<<<<< Updated upstream
-=======
     protected $hidden = [
         'created_at',
         'updated_at'
@@ -22,5 +20,5 @@ class Editorial extends Model
     public function material(){
         return $this->BelongsTo('App\Material','editorial_id','id');
     }
->>>>>>> Stashed changes
 }
+

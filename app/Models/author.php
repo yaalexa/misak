@@ -19,9 +19,6 @@ class Author extends Model
         'created_at',
         'updated_at'
     ];
-<<<<<<< Updated upstream
-}
-=======
 
     //relacion muchos a muchos
     public function material(){
@@ -29,4 +26,4 @@ class Author extends Model
     }
     
 }
->>>>>>> Stashed changes
+

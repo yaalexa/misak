@@ -26,7 +26,7 @@ class User extends Authenticatable
         'document_type',
         'document_number',
         'certificate_misak',
-        'rols_id',
+       
     ];
     protected $hidden = [
         'created_at',
@@ -38,10 +38,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-<<<<<<< Updated upstream
-=======
 
-     // relacion de uno a muchos 
      public function rol(){
         return $this->BelongsTo('App\Rol','user_id','id');
     }
@@ -49,7 +46,6 @@ class User extends Authenticatable
     public function material(){
         return $this->hasMany('App\Models\Material_User','material_id','id');
     }
->>>>>>> Stashed changes
 }
 
 

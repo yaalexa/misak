@@ -11,8 +11,6 @@ class Educational_level extends Model
     protected $fillable = [
         'name'
     ];
-<<<<<<< Updated upstream
-=======
     protected $hidden = [
         'created_at',
         'updated_at'
@@ -22,5 +20,5 @@ class Educational_level extends Model
     public function material(){
         return $this->hasMany('App\Models\Material_Educational_Level','educational_level_id','id');
     }
->>>>>>> Stashed changes
 }
+
