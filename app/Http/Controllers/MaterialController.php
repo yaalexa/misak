@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Material_User;
+use App\Models\Material;
 use Illuminate\Validation\Rules\Exist;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
-class Material_UserController extends Controller
+class MaterialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class Material_UserController extends Controller
      */
     public function index()
     {
-        $material_user = Material_User::all();
-        return $material_user;
+        $material = Material::all();
+        return $material;
     }
 
     /**
@@ -30,26 +30,33 @@ class Material_UserController extends Controller
     public function store(Request $request)
     {
         $validar= Validator::make($request->all(), [
-            'manejo_users' => 'required',
-            'detalle_material' => 'required',
-            'date_download' => 'required',
-            'material_id' => 'required',
-            'users_id' => 'required'
+            'name' => 'required',
+            'isbn' => 'required|unique:materials',
+            'year' => 'required',
+            'num_pages' => 'required',
+            'priority' => 'required',
+            'pdf' => 'required',
+            'img' => 'required'
         ]); 
         if(!$validar ->fails()){
-            $material_user = new Material_User();
+            $material = new Material();
             
-            $material_user->manejo_users = $request ->manejo_users;
-            $material_user->detalle_material = $request ->detalle_material;
-            $material_user->date_download = $request ->date_download;
-            $material_user->material_id = $request ->material_id;
-            $material_user->users_id = $request ->users_id;
+            $material->name = $request ->name;
+            $material->isbn = $request ->isbn;
+            $material->year = $request ->year;
+            $material->num_pages = $request ->num_pages;
+            $material->priority = $request ->priority;
+            $material->pdf = $request ->pdf;
+            $material->img = $request ->img;
+            $material->type_material_id = $request ->type_material_id;
+            $material->editorial_id = $request ->editorial_id;
+            $material->area_id = $request ->area_id;
 
-            $material_user->save();
+            $material->save();
 
             return response()->json([
                 'res'=> true,
-                'mensaje' => 'registro guardado' 
+                'mensaje' => 'material guardado' 
             ]);
         }else{
             return response()->json([
@@ -67,12 +74,12 @@ class Material_UserController extends Controller
      */
     public function show($id)
     {
-        $material_user = Material_User::where('id',$id)
+        $material = Material::where('id',$id)
         ->first();
-        if (isset($material_user)){
+        if (isset($material)){
             return response()->json([
                 'res'=> true,
-                'material' => $material_user
+                'material' => $material 
             ]);
         }else{
             return response()->json([
@@ -92,21 +99,31 @@ class Material_UserController extends Controller
     public function update(Request $request, $id)
     {
         $validar= Validator::make($request->all(), [
-            'manejo_users' => 'required',
-            'detalle_material' => 'required',
-            'date_download' => 'required',
-            'material_id' => 'required',
-            'users_id' => 'required'
+            'name' => 'required',
+            'isbn' => 'required|unique:materials',
+            'year' => 'required',
+            'num_pages' => 'required',
+            'priority' => 'required',
+            'pdf' => 'required',
+            'img' => 'required',
+            'type_material_id' => 'required', 
+            'editorial_id' => 'required',
+            'area_id' => 'required'
         ]);
 
         if(!$validar->fails()){
-            $material_user = Material_User::find($id);
-            if(isset($material_user)){
-                $material_user->manejo_users = $request ->manejo_users;
-                $material_user->detalle_material = $request ->detalle_material;
-                $material_user->date_download = $request ->date_download;
-                $material_user->material_id = $request ->material_id;
-                $material_user->users_id = $request ->users_id;
+            $material = Material::find($id);
+            if(isset($material)){
+                $material->name = $request ->name;
+                $material->year = $request ->year;
+                $material->isbn = $request ->isbn;
+                $material->priority = $request ->priority;
+                $material->num_pages = $request ->num_pages;
+                $material->img = $request ->img;
+                $material->type_material_id = $request ->type_material_id;
+                $material->pdf = $request ->pdf;
+                $material->editorial_id = $request ->editorial_id;
+                $material->area_id = $request ->area_id;
 
                 $material->save();
                  return response()->json([
@@ -133,9 +150,9 @@ class Material_UserController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $material_user = Material_User::find($id);
-        if(isset($material_user)){
-            $material_user->delete();
+        $material = Material::find($id);
+        if(isset($material)){
+            $material->delete();
             return response()->json([
                 'res'=> true,
                 'mensaje' => 'exito al elimar'
@@ -148,4 +165,3 @@ class Material_UserController extends Controller
         }
     }
 }
-
