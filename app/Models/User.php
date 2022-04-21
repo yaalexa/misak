@@ -2,31 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $table="users";
     protected $fillable = [
         'name',
         'full_name',
-        'email',
-        'password',
         'document_type',
         'document_number',
         'certificate_misak',
-       
+        'email',
+        'password',
+        'rol_id'
     ];
     protected $hidden = [
         'created_at',
@@ -35,12 +26,9 @@ class User extends Authenticatable
     ];
 
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
-     public function rol(){
-        return $this->BelongsTo('App\Rol','user_id','id');
+    // relacion de muchos a uno
+    public function rol(){
+        return $this->hasMany('App\Rol','user_id','id');
     }
     //relacion de muchos a muchos
     public function material(){
