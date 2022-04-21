@@ -19,6 +19,7 @@ class MaterialController extends Controller
     {
         $material = Material::all();
         return $material;   
+
     }
 
     /**
