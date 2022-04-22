@@ -20,6 +20,8 @@ class CreateMaterialsTable extends Migration
             $table->year('year');
             $table->integer('num_pages');
             $table->integer('priority');
+
+            //subir imagen y archivo
             $table->string('pdf');
             $table->string('img');
 
