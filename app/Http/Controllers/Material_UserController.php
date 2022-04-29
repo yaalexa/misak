@@ -31,6 +31,8 @@ class Material_UserController extends Controller
     {
         $validar= Validator::make($request->all(), [
             'manejo_users' => 'required',
+            //////////////////////////////////////////////////////////////////
+            // recordar que es campo detalle material es el manejo del material
             'detalle_material' => 'required',
             'date_download' => 'required',
             'material_id' => 'required',

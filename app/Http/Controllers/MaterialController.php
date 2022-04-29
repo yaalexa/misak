@@ -38,9 +38,23 @@ class MaterialController extends Controller
             'pdf' => 'required',
             'img' => 'required'
         ]); 
-        if(!$validar ->fails()){
+       // if(!$validar ->fails()){
             $material = new Material();
-            
+           /* 
+            $image="";
+            if($request->hasFile('img')){
+            $image=$request->file('img')->store('image','public');
+            }else{
+            $image=Null;
+            }
+            $file="";
+            if($request->hasFile('pdf')){
+            $file=$request->file('pdf')->store('file','public');
+            }else{
+            $file=Null;
+            }
+            $material->pdf = $file;
+            $material->img = $image;*/
             $material->name = $request ->name;
             $material->isbn = $request ->isbn;
             $material->year = $request ->year;
@@ -48,20 +62,22 @@ class MaterialController extends Controller
             $material->priority = $request ->priority;
             $material->pdf = $request ->pdf;
             $material->img = $request ->img;
-            $material->type_material_id = $request ->type_material_id;
+            /*$material->type_material_id = $request ->type_material_id;
             $material->editorial_id = $request ->editorial_id;
-            $material->area_id = $request ->area_id;
-
-            $material->save();
-
+            $material->area_id = $request ->area_id;*/
+           // $material->save();
+        $result=$material->save();
+        if($result){
             return response()->json([
                 'res'=> true,
-                'mensaje' => 'material guardado' 
+                'mensaje' => 'material guardado' ,
+                'ruta'=> url('storage/image/'.$material)
             ]);
         }else{
             return response()->json([
                 'res'=> false,
-                'mensaje' => 'error entrada duplicada' 
+                'mensaje' => 'error entrada duplicada' ,
+                'ruta' => null
             ]);
         }
     }
@@ -72,7 +88,7 @@ class MaterialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show( Request $request, $id)
     {
         $material = Material::where('id',$id)
         ->first();
@@ -100,15 +116,13 @@ class MaterialController extends Controller
     {
         $validar= Validator::make($request->all(), [
             'name' => 'required',
-            'isbn' => 'required|unique:materials',
+            'isbn' => 'required',
             'year' => 'required',
             'num_pages' => 'required',
             'priority' => 'required',
             'pdf' => 'required',
             'img' => 'required',
-            'type_material_id' => 'required', 
-            'editorial_id' => 'required',
-            'area_id' => 'required'
+           
         ]);
 
         if(!$validar->fails()){
@@ -120,11 +134,7 @@ class MaterialController extends Controller
                 $material->priority = $request ->priority;
                 $material->num_pages = $request ->num_pages;
                 $material->img = $request ->img;
-                $material->type_material_id = $request ->type_material_id;
                 $material->pdf = $request ->pdf;
-                $material->editorial_id = $request ->editorial_id;
-                $material->area_id = $request ->area_id;
-
                 $material->save();
                  return response()->json([
                 'res'=> true,

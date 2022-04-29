@@ -6,6 +6,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\EditorialController;
 use App\Http\Controllers\Educational_LevelController;
+use App\Http\Controllers\AreaController;
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\Type_MaterialController;
+use App\Http\Controllers\RolController;
 //use App\Http\Controllers\AuthorController;
 
 /*
@@ -44,7 +48,11 @@ Route::group( ['middleware' => ["auth:sanctum"]], function(){
     Route::get('userprofile', [UserController::class, 'userProfile']);
     Route::get('logout', [UserController::class, 'logout']);
 });
-
+Route::get('users',[UserController::class,'index']); // con esta ruta puedo ver todos los usuarios
+Route::post('users',[UserController::class,'store']); //con esta ruta puedo registrar una nuevo usuario
+Route::get('users/{id}',[UserController::class,'show']); // con esta ruta puedo buscar un usuario especifico
+Route::put('users/{id}',[UserController::class,'update']); // con esta ruta puedo actualizar un usuario
+Route::delete('users/{id}',[UserController::class,'destroy']); // con esta ruta puedo eliminar un usuario 
 
 
 //de esta forma nos genera todas las rutas

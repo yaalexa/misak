@@ -31,13 +31,13 @@ class RolController extends Controller
     {
         $validar= Validator::make($request->all(), [
             'name'=> "required|unique:rols",
-            'user_id' => "required|unique:rols"
+          
         ]);
         if(!$validar ->fails()){
             $rol = new Rol();
             
             $rol->name = $request ->name;
-            $rol->user_id = $request ->user_id;
+           
 
             $rol->save();
 
@@ -87,14 +87,14 @@ class RolController extends Controller
     {
         $validar= Validator::make($request->all(), [
             'name' => "required|unique:rols",
-            'user_id' => "required|unique:rols"
+           
         ]);
 
         if(!$validar->fails()){
             $rol = Rol::find($id);
             if(isset($rol)){
                 $rol->name= $request->name;
-                $rol->user_id= $request->user_id;
+              
 
                 $rol->save();
                  return response()->json([

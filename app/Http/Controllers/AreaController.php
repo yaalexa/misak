@@ -34,11 +34,8 @@ class AreaController extends Controller
         ]);
         if(!$validar ->fails()){
             $area = new Area();
-            
             $area->name = $request ->name;
-
             $area->save();
-
             return response()->json([
                 'res'=> true,
                 'mensaje' => 'area guardada' 

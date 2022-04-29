@@ -14,7 +14,7 @@ return [
     */
 
     'default' => env('FILESYSTEM_DISK', 'local'),
-
+    'default' => env('FILESYSTEM_DRIVER', 'local'),
     /*
     |--------------------------------------------------------------------------
     | Filesystem Disks
@@ -55,7 +55,12 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
         ],
-
+        'images' => [
+            'driver' => 'local',
+            'root' => public_path('app/public/image'),
+            'url' => env('APP_URL').'/storage/image',
+            'visibility' => 'public',
+          ],
     ],
 
     /*

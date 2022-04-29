@@ -84,7 +84,7 @@ class EditorialController extends Controller
     public function update(Request $request, $id)
     {
         $validar= Validator::make($request->all(), [
-            'name' => "required|unique:editorials"
+            'name' => "required"
         ]);
 
         if(!$validar->fails()){
