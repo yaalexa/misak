@@ -84,7 +84,7 @@ class UserController extends Controller
             "data" => auth()->user()
         ]); 
     }
-
+ 
     public function logout() {
         auth()->user()->tokens()->delete();
         

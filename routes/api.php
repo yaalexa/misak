@@ -10,6 +10,10 @@ use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\Type_MaterialController;
 use App\Http\Controllers\RolController;
+use App\Http\Controllers\Author_MaterialController;
+use App\Http\Controllers\Material_UserController;
+
+
 //use App\Http\Controllers\AuthorController;
 
 /*
